@@ -1,0 +1,154 @@
+<div class="activity-section">
+    <h3>🎯 תפקודים ניהוליים</h3>
+    <p>בואו נפתח חשיבה גמישה ונלמד לפתור בעיות!</p>
+    
+    <div class="game-container">
+        <h4>🔄 משחק מיון - מה שייך יחד?</h4>
+        <p>מצאו את הקשר בין הפריטים ומיינו אותם לקבוצות:</p>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 15px; margin: 25px 0;">
+            <div class="draggable-item" draggable="true" data-category="school">
+                <div class="item-emoji">📚</div>
+                <div class="item-text">ספר</div>
+            </div>
+            <div class="draggable-item" draggable="true" data-category="fruit">
+                <div class="item-emoji">🍎</div>
+                <div class="item-text">תפוח</div>
+            </div>
+            <div class="draggable-item" draggable="true" data-category="school">
+                <div class="item-emoji">✏️</div>
+                <div class="item-text">עפרון</div>
+            </div>
+            <div class="draggable-item" draggable="true" data-category="fruit">
+                <div class="item-emoji">🍌</div>
+                <div class="item-text">בננה</div>
+            </div>
+            <div class="draggable-item" draggable="true" data-category="school">
+                <div class="item-emoji">📏</div>
+                <div class="item-text">סרגל</div>
+            </div>
+            <div class="draggable-item" draggable="true" data-category="fruit">
+                <div class="item-emoji">🍊</div>
+                <div class="item-text">תפוז</div>
+            </div>
+        </div>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin: 25px 0;">
+            <div class="drop-zone" data-category="school">
+                <h4>🏫 ציוד לבית ספר</h4>
+            </div>
+            <div class="drop-zone" data-category="fruit">
+                <h4>🍓 פירות</h4>
+            </div>
+            <div class="drop-zone" data-category="other">
+                <h4>❓ אחר</h4>
+            </div>
+        </div>
+        
+        <button class="btn" onclick="checkCategories()">בדוק את המיון</button>
+        <div id="categoryFeedback" style="margin-top: 15px; font-weight: 500;"></div>
+    </div>
+</div>
+
+<div class="activity-section">
+    <h3>🪴 סדר הפעולות - שתילת פרח</h3>
+    
+    <div class="game-container">
+        <h4>🌻 איך שותלים פרח?</h4>
+        <p>סדרו את השלבים לפי הסוף הנכון:</p>
+        
+        <div id="flowerSteps" style="margin: 25px 0;">
+            <div class="draggable-item" draggable="true" data-step="1" style="margin-bottom: 10px; cursor: move;">
+                <div style="display: flex; align-items: center; gap: 15px;">
+                    <div style="background: #667eea; color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">1</div>
+                    <div>משקים את השתיל</div>
+                </div>
+            </div>
+            <div class="draggable-item" draggable="true" data-step="2" style="margin-bottom: 10px; cursor: move;">
+                <div style="display: flex; align-items: center; gap: 15px;">
+                    <div style="background: #667eea; color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">2</div>
+                    <div>חופרים בור קטן באדמה</div>
+                </div>
+            </div>
+            <div class="draggable-item" draggable="true" data-step="3" style="margin-bottom: 10px; cursor: move;">
+                <div style="display: flex; align-items: center; gap: 15px;">
+                    <div style="background: #667eea; color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">3</div>
+                    <div>מניחים את השתיל בבור ומכסים באדמה</div>
+                </div>
+            </div>
+            <div class="draggable-item" draggable="true" data-step="4" style="margin-bottom: 10px; cursor: move;">
+                <div style="display: flex; align-items: center; gap: 15px;">
+                    <div style="background: #667eea; color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">4</div>
+                    <div>בוחרים מקום עם אור שמש</div>
+                </div>
+            </div>
+        </div>
+        
+        <div style="background: #f8f9fa; padding: 20px; border-radius: 10px; margin: 25px 0;">
+            <h5 style="color: #667eea; margin-top: 0;">איך נדע אם הסדר נכון?</h5>
+            <p style="color: #555; margin-bottom: 0;">נסו לחשוב מה צריך לעשות קודם ומה אחר כך. האם אפשר לשתול בלי לבחור מקום קודם? האם אפשר להשקות לפני ששמים את השתיל באדמה?</p>
+        </div>
+        
+        <button class="btn" onclick="checkFlowerSteps()">בדוק את הסדר</button>
+        <div id="stepsFeedback" style="margin-top: 15px; font-weight: 500;"></div>
+    </div>
+</div>
+
+<div class="activity-section">
+    <h3>💡 פתרון בעיות - מה אפשר לעשות?</h3>
+    <p>בואו נחשוב יחד על פתרונות יצירתיים לבעיות יומיומיות!</p>
+    
+    <div class="game-container">
+        <h4>🤔 בחרו סיטואציה ודברו על פתרונות אפשריים:</h4>
+        
+        <div id="problemSituations" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin: 20px 0;">
+            <div style="background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 25px; border-radius: 15px; cursor: pointer; transition: all 0.3s ease;" onclick="showProblem('rain')">
+                <div style="font-size: 2.5rem; margin-bottom: 15px;">☔</div>
+                <h4 style="margin: 0 0 10px 0;">יורד גשם והחולצה האהובה עליי עדיין תלויה בחוץ</h4>
+                <p style="opacity: 0.9; font-size: 0.9rem; margin: 0;">מה אעשה?</p>
+            </div>
+            
+            <div style="background: linear-gradient(135deg, #4CAF50, #45a049); color: white; padding: 25px; border-radius: 15px; cursor: pointer; transition: all 0.3s ease;" onclick="showProblem('forgot')">
+                <div style="font-size: 2.5rem; margin-bottom: 15px;">🎒</div>
+                <h4 style="margin: 0 0 10px 0;">שכחתי את התיק בבית והיום יש מבחן</h4>
+                <p style="opacity: 0.9; font-size: 0.9rem; margin: 0;">איך אתמודד עם זה?</p>
+            </div>
+            
+            <div style="background: linear-gradient(135deg, #ff6b6b, #ffa726); color: white; padding: 25px; border-radius: 15px; cursor: pointer; transition: all 0.3s ease;" onclick="showProblem('lost')">
+                <div style="font-size: 2.5rem; margin-bottom: 15px;">😟</div>
+                <h4 style="margin: 0 0 10px 0;">איבדתי את הקלמר האהוב שלי</h4>
+                <p style="opacity: 0.9; font-size: 0.9rem; margin: 0;">איך אמצא אותו או אתמודד עם האובדן?</p>
+            </div>
+        </div>
+        
+        <div id="problemDisplay" style="display: none; margin-top: 30px; padding: 25px; background: #f0f8ff; border-radius: 15px;">
+            <h5 id="problemTitle" style="font-size: 1.5rem; margin-bottom: 20px; text-align: center;"></h5>
+            
+            <div style="background: white; padding: 20px; border-radius: 10px; margin-bottom: 20px;">
+                <p style="font-weight: 600; color: #667eea; margin-bottom: 10px;">💭 שאלות לחשוב עליהן:</p>
+                <div id="problemQuestions" style="margin-right: 20px; color: #555;"></div>
+            </div>
+            
+            <div style="background: white; padding: 20px; border-radius: 10px; margin-bottom: 20px;">
+                <p style="font-weight: 600; color: #4CAF50; margin-bottom: 10px;">💡 רעיונות לפתרונות:</p>
+                <div id="problemTips" style="margin-right: 20px;"></div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 25px;">
+                <button class="btn" onclick="document.getElementById('problemDisplay').style.display = 'none';">
+                    סגור
+                </button>
+            </div>
+        </div>
+        
+        <div style="background: #f8f9fa; padding: 20px; border-radius: 10px; margin-top: 25px; border-right: 4px solid #667eea;">
+            <h5 style="color: #667eea; margin-top: 0;">איך פותרים בעיות בצורה טובה?</h5>
+            <ol style="padding-right: 20px; color: #555;">
+                <li style="margin-bottom: 10px;">נסו להבין מה הבעיה האמיתית</li>
+                <li style="margin-bottom: 10px;">חשבו על כמה שיותר פתרונות אפשריים</li>
+                <li style="margin-bottom: 10px;">בחרו את הפתרון הטוב ביותר</li>
+                <li>נסו את הפתרון ולמדו מהתוצאה</li>
+            </ol>
+        </div>
+    </div>
+</div>

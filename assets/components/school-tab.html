@@ -1,0 +1,145 @@
+<div class="activity-section">
+    <h3>🏫 משחק סדר היום בבית הספר</h3>
+    <p>בואו נסדר יחד את סדר היום בבית הספר! גררו את הפעולות למקום הנכון:</p>
+    
+    <div class="game-container">
+        <h4>📅 סדר היום שלי</h4>
+        <p>גררו את הפעולות לפי הסוף הנכון של היום:</p>
+        
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 20px 0;">
+            <div>
+                <h5>🔄 פעולות אפשריות</h5>
+                <div class="drop-zone" id="availableItems" data-placeholder="גרור לכאן את הפעולות" style="min-height: 200px;">
+                    <div class="draggable-item" draggable="true" data-item="wake-up">
+                        <div class="item-emoji">⏰</div>
+                        <div class="item-text">מתעורר בבוקר</div>
+                    </div>
+                    <div class="draggable-item" draggable="true" data-item="breakfast">
+                        <div class="item-emoji">🍳</div>
+                        <div class="item-text">אוכל ארוחת בוקר</div>
+                    </div>
+                    <div class="draggable-item" draggable="true" data-item="school">
+                        <div class="item-emoji">🏫</div>
+                        <div class="item-text">הולך לבית הספר</div>
+                    </div>
+                    <div class="draggable-item" draggable="true" data-item="lunch">
+                        <div class="item-emoji">🍎</div>
+                        <div class="item-text">אוכל ארוחת צהריים</div>
+                    </div>
+                    <div class="draggable-item" draggable="true" data-item="homework">
+                        <div class="item-emoji">📚</div>
+                        <div class="item-text">עושה שיעורי בית</div>
+                    </div>
+                    <div class="draggable-item" draggable="true" data-item="play">
+                        <div class="item-emoji">⚽</div>
+                        <div class="item-text">משחק עם חברים</div>
+                    </div>
+                    <div class="draggable-item" draggable="true" data-item="dinner">
+                        <div class="item-emoji">🍽️</div>
+                        <div class="item-text">אוכל ארוחת ערב</div>
+                    </div>
+                    <div class="draggable-item" draggable="true" data-item="sleep">
+                        <div class="item-emoji">😴</div>
+                        <div class="item-text">הולך לישון</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div>
+                <h5>⬇️ גרור לכאן לפי הסדר</h5>
+                <div class="drop-zone" id="daySequence" data-placeholder="גרור לכאן את הפעולות לפי הסדר" style="min-height: 200px;">
+                    <h4>סדר היום שלי</h4>
+                </div>
+            </div>
+        </div>
+        
+        <button class="btn" onclick="checkDaySequence()">בדוק את הסדר</button>
+        <div id="sequenceFeedback" style="margin-top: 15px; font-weight: 500;"></div>
+    </div>
+</div>
+
+<div class="activity-section">
+    <h3>🎯 משחק מיון - מה שייך לבית הספר?</h3>
+    <p>בואו נמיין יחד! גררו כל פריט למקום הנכון:</p>
+    
+    <div class="game-container">
+        <h4>🔍 מיון חכם</h4>
+        <p>חשבו טוב - האם זה שייך לבית הספר, לא שייך, או אולי כן?</p>
+        
+        <div id="sortingItems" class="drop-zone" data-placeholder="גרור לכאן את הפריטים" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 15px; margin: 20px 0; min-height: 120px;">
+            <div class="draggable-item" draggable="true" data-category="yes">
+                <div class="item-emoji">📚</div>
+                <div class="item-text">מחברת</div>
+            </div>
+            <div class="draggable-item" draggable="true" data-category="yes">
+                <div class="item-emoji">✏️</div>
+                <div class="item-text">עפרון</div>
+            </div>
+            <div class="draggable-item" draggable="true" data-category="no">
+                <div class="item-emoji">🧸</div>
+                <div class="item-text">דובי</div>
+            </div>
+            <div class="draggable-item" draggable="true" data-category="maybe">
+                <div class="item-emoji">💧</div>
+                <div class="item-text">בקבוק מים</div>
+            </div>
+            <div class="draggable-item" draggable="true" data-category="yes">
+                <div class="item-emoji">📏</div>
+                <div class="item-text">סרגל</div>
+            </div>
+            <div class="draggable-item" draggable="true" data-category="no">
+                <div class="item-emoji">🎮</div>
+                <div class="item-text">קונסולת משחקים</div>
+            </div>
+        </div>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin: 20px 0;">
+            <div class="drop-zone" data-category="yes">
+                <h4>👍 כן שייך</h4>
+            </div>
+            <div class="drop-zone" data-category="no">
+                <h4>👎 לא שייך</h4>
+            </div>
+            <div class="drop-zone" data-category="maybe">
+                <h4>🤔 יכול להיות</h4>
+            </div>
+        </div>
+        
+        <button class="btn" onclick="checkSorting()">בדוק את המיון</button>
+        <div id="sortingFeedback" style="margin-top: 15px; font-weight: 500;"></div>
+    </div>
+</div>
+
+<div class="activity-section">
+    <h3>🎈 נשימת הבלון הקסומה</h3>
+    <p>בואו נלמד יחד נשימה שתעזור לנו להרגיש רגועים!</p>
+    
+    <div class="game-container" style="text-align: center;">
+        <div id="balloonBreathing" style="width: 150px; height: 150px; background: #ff6b6b; border-radius: 50%; margin: 0 auto 30px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; cursor: pointer; transition: all 0.5s ease; box-shadow: 0 10px 20px rgba(0,0,0,0.1);">
+            🎈 לחצו להתחיל
+        </div>
+        
+        <div id="breathingInstructions" style="font-size: 1.2rem; margin: 20px 0; min-height: 80px; display: flex; align-items: center; justify-content: center;">
+            לחצו על הבלון כדי להתחיל בתרגיל הנשימה
+        </div>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 30px;">
+            <div style="background: #f0f8ff; padding: 15px; border-radius: 10px; border-right: 4px solid #667eea;">
+                <h4 style="color: #667eea; margin-top: 0;">מתי כדאי להשתמש?</h4>
+                <ul style="text-align: right; padding-right: 20px; color: #555;">
+                    <li>כשמרגישים לחץ</li>
+                    <li>לפני מבחן</li>
+                    <li>כשקשה להתרכז</li>
+                </ul>
+            </div>
+            <div style="background: #f0f8ff; padding: 15px; border-radius: 10px; border-right: 4px solid #4CAF50;">
+                <h4 style="color: #4CAF50; margin-top: 0;">איך זה עוזר?</h4>
+                <ul style="text-align: right; padding-right: 20px; color: #555;">
+                    <li>מרגיע את הגוף</li>
+                    <li>משפר ריכוז</li>
+                    <li>מפחית חרדה</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

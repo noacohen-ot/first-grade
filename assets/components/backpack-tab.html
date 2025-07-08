@@ -1,0 +1,181 @@
+<div class="tab-inner">
+    <h2>🎒 התרמיל הרגשי שלי</h2>
+    <p class="tab-description">כאן תוכלו לשמור את כל הדברים החשובים שלכם לקראת כיתה א'</p>
+    
+    <div class="backpack-sections">
+        <!-- רגשות לקראת כיתה א' -->
+        <div class="backpack-section">
+            <h3>💖 איך אני מרגיש/ה לגבי כיתה א'?</h3>
+            <div id="emotionDisplay" class="emotion-display">
+                <p>טרם נבחרו רגשות</p>
+            </div>
+        </div>
+        
+        <!-- מחשבות שלי -->
+        <div class="backpack-section">
+            <h3>💭 המחשבות שלי</h3>
+            <div id="thoughtsDisplay" class="thoughts-display">
+                <p>טרם נשמרו מחשבות</p>
+            </div>
+        </div>
+        
+        <!-- החוזקות שלי -->
+        <div class="backpack-section">
+            <h3>💪 החוזקות שלי</h3>
+            <div id="strengthsDisplay" class="strengths-display">
+                <p>טרם נוספו חוזקות</p>
+            </div>
+        </div>
+        
+        <!-- האתגרים שלי -->
+        <div class="backpack-section">
+            <h3>🎯 האתגרים שלי</h3>
+            <div id="challengesDisplay" class="challenges-display">
+                <p>טרם נוספו אתגרים</p>
+            </div>
+        </div>
+        
+        <!-- כלי עזר שיעזרו לי -->
+        <div class="backpack-section">
+            <h3>🛠️ כלים שיעזרו לי</h3>
+            <div id="helpDisplay" class="help-display">
+                <p>טרם נוספו כלי עזר</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="backpack-actions">
+        <button onclick="printBackpack()" class="print-button">🖨️ הדפס את התרמיל שלי</button>
+    </div>
+</div>
+
+<style>
+.backpack-sections {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.backpack-section {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.backpack-section h3 {
+    color: #5e35b1;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+}
+
+.emotion-display,
+.thoughts-display,
+.strengths-display,
+.challenges-display,
+.help-display {
+    min-height: 100px;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    border-right: 4px solid #5e35b1;
+}
+
+.print-button {
+    background: linear-gradient(45deg, #5e35b1, #3949ab);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+}
+
+.print-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+@media print {
+    .print-button {
+        display: none;
+    }
+    
+    body {
+        background: white !important;
+    }
+    
+    .backpack-section {
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+}
+</style>
+
+<script>
+// This function will be called when the tab is shown
+function initBackpackTab() {
+    updateBackpackDisplay();
+}
+
+function updateBackpackDisplay() {
+    // Update emotions display
+    const emotions = JSON.parse(localStorage.getItem('gradeEmotions') || '[]');
+    const emotionsDisplay = document.getElementById('emotionDisplay');
+    if (emotions.length > 0) {
+        emotionsDisplay.innerHTML = emotions.map(e => 
+            `<span class="emotion-tag">${e}</span>`
+        ).join('');
+    }
+    
+    // Update thoughts display
+    const thoughts = JSON.parse(localStorage.getItem('savedThoughts') || '{}');
+    const thoughtsDisplay = document.getElementById('thoughtsDisplay');
+    if (thoughts.exciting || thoughts.scary || thoughts.happy || thoughts.sad) {
+        let thoughtsHtml = '';
+        if (thoughts.exciting) thoughtsHtml += `<p><strong>🤔 מה מעניין אותי:</strong> ${thoughts.exciting}</p>`;
+        if (thoughts.scary) thoughtsHtml += `<p><strong>😰 מה מדאיג אותי:</strong> ${thoughts.scary}</p>`;
+        if (thoughts.happy) thoughtsHtml += `<p><strong>😊 מה משמח אותי:</strong> ${thoughts.happy}</p>`;
+        if (thoughts.sad) thoughtsHtml += `<p><strong>😢 מה מעציב אותי:</strong> ${thoughts.sad}</p>`;
+        thoughtsDisplay.innerHTML = thoughtsHtml;
+    }
+    
+    // Update strengths display
+    const strengths = JSON.parse(localStorage.getItem('strengths') || '[]');
+    const strengthsDisplay = document.getElementById('strengthsDisplay');
+    if (strengths.length > 0) {
+        strengthsDisplay.innerHTML = '<ul>' + strengths.map(s => 
+            `<li>${s}</li>`
+        ).join('') + '</ul>';
+    }
+    
+    // Update challenges display
+    const challenges = JSON.parse(localStorage.getItem('challenges') || '[]');
+    const challengesDisplay = document.getElementById('challengesDisplay');
+    if (challenges.length > 0) {
+        challengesDisplay.innerHTML = '<ul>' + challenges.map(c => 
+            `<li>${c}</li>`
+        ).join('') + '</ul>';
+    }
+    
+    // Update help display
+    const helpItems = JSON.parse(localStorage.getItem('helpItems') || '[]');
+    const helpDisplay = document.getElementById('helpDisplay');
+    if (helpItems.length > 0) {
+        helpDisplay.innerHTML = '<ul>' + helpItems.map(h => 
+            `<li>${h}</li>`
+        ).join('') + '</ul>';
+    }
+}
+
+function printBackpack() {
+    updateBackpackDisplay();
+    window.print();
+}
+
+// Add this to the global scope so it can be called from other tabs
+window.printBackpack = printBackpack;
+</script>

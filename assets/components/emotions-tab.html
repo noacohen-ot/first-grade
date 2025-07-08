@@ -1,0 +1,156 @@
+<div class="activity-section">
+    <h3>💚 ויסות רגשי</h3>
+    <p>בואו נכיר את הרגשות שלנו ונלמד איך להתמודד איתם!</p>
+    
+    <div class="game-container">
+        <h4>🌈 איך אני מרגיש היום?</h4>
+        <p>בחרו את הרגש שמתאר איך אתם מרגישים כרגע:</p>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 15px; margin: 25px 0;">
+            <div style="background: #ffeb3b; padding: 20px; border-radius: 15px; text-align: center; cursor: pointer; transition: transform 0.3s ease;" 
+                 onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'"
+                 onclick="showEmotionInfo('happy', 'שמח/ה', '😊')">
+                <div style="font-size: 2.5rem;">😊</div>
+                <div>שמח/ה</div>
+            </div>
+            <div style="background: #ff9800; padding: 20px; border-radius: 15px; text-align: center; cursor: pointer; transition: transform 0.3s ease;"
+                 onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'"
+                 onclick="showEmotionInfo('sad', 'עצוב/ה', '😢')">
+                <div style="font-size: 2.5rem;">😢</div>
+                <div>עצוב/ה</div>
+            </div>
+            <div style="background: #f44336; padding: 20px; border-radius: 15px; text-align: center; cursor: pointer; transition: transform 0.3s ease;"
+                 onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'"
+                 onclick="showEmotionInfo('angry', 'כועס/ה', '😠')">
+                <div style="font-size: 2.5rem;">😠</div>
+                <div>כועס/ה</div>
+            </div>
+            <div style="background: #2196F3; padding: 20px; border-radius: 15px; text-align: center; cursor: pointer; transition: transform 0.3s ease;"
+                 onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'"
+                 onclick="showEmotionInfo('scared', 'מפחד/ת', '😨')">
+                <div style="font-size: 2.5rem;">😨</div>
+                <div>מפחד/ת</div>
+            </div>
+            <div style="background: #4CAF50; padding: 20px; border-radius: 15px; text-align: center; cursor: pointer; transition: transform 0.3s ease;"
+                 onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'"
+                 onclick="showEmotionInfo('calm', 'רגוע/ה', '😌')">
+                <div style="font-size: 2.5rem;">😌</div>
+                <div>רגוע/ה</div>
+            </div>
+        </div>
+        
+        <div id="emotionInfo" style="display: none; margin-top: 30px; padding: 20px; background: #f8f9fa; border-radius: 15px;">
+            <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
+                <div id="emotionEmoji" style="font-size: 3rem;"></div>
+                <h3 id="emotionTitle" style="margin: 0; font-size: 1.8rem;"></h3>
+            </div>
+            
+            <div id="emotionContent">
+                <p id="emotionDescription" style="color: #555; line-height: 1.6;"></p>
+                
+                <div style="margin-top: 20px;">
+                    <h4 style="color: #667eea; margin-bottom: 10px;">💡 מה אפשר לעשות כשמרגישים ככה?</h4>
+                    <ul id="emotionTips" style="padding-right: 20px; color: #555;"></ul>
+                </div>
+                
+                <div style="margin-top: 20px; padding: 15px; background: white; border-radius: 10px; border-right: 4px solid #4CAF50;">
+                    <h4 style="color: #4CAF50; margin-top: 0;">זכרו:</h4>
+                    <p style="margin: 0; color: #555;">כל הרגשות הם טבעיים ומותר להרגיש אותם. מה שחשוב זה איך אנחנו בוחרים להגיב להם.</p>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 25px;">
+                <button class="btn" onclick="document.getElementById('emotionInfo').style.display = 'none';">
+                    חזרה לרגשות
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="activity-section">
+    <h3>🌟 המשפט הקסום שלי</h3>
+    <p>כשאני מרגיש מוטרד או לחוץ, אני יכול להגיד לעצמי משפט מיוחד שיעזור לי להרגיש טוב יותר!</p>
+    
+    <div class="game-container">
+        <div id="magicPhraseForm">
+            <p style="color: #555; margin-bottom: 20px;">המציאו משפט שיעזור לכם להרגיש טוב יותר ברגעים קשים:</p>
+            
+            <div style="background: #f0f8ff; padding: 20px; border-radius: 10px; margin-bottom: 20px;">
+                <div style="margin-bottom: 15px;">
+                    <label for="magicPhrase" style="display: block; margin-bottom: 8px; font-weight: 500; color: #333;">המשפט שלי:</label>
+                    <input type="text" id="magicPhrase" class="input-field" placeholder="לדוגמה: אני יכול/ה להתמודד עם זה!" style="width: 100%;">
+                </div>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; margin-top: 15px;">
+                    <button class="btn" style="background: linear-gradient(45deg, #667eea, #764ba2);" onclick="saveMagicPhrase()">שמור משפט</button>
+                    <button class="btn btn-secondary" onclick="suggestPhrase()">הצע לי משפט</button>
+                </div>
+            </div>
+            
+            <div id="savedPhrase" style="display: none; text-align: center; padding: 30px; background: linear-gradient(135deg, #667eea, #764ba2); color: white; border-radius: 15px; margin: 20px 0;">
+                <div style="font-size: 2rem; margin-bottom: 15px;">✨</div>
+                <h3 style="margin: 0 0 10px 0; font-size: 1.5rem;">המשפט הקסום שלך:</h3>
+                <p id="displayPhrase" style="font-size: 1.3rem; margin: 0 0 20px 0; font-weight: 500;"></p>
+                <button class="btn" onclick="editPhrase()" style="background: white; color: #667eea;">ערוך משפט</button>
+            </div>
+            
+            <div style="background: #f8f9fa; padding: 20px; border-radius: 10px; margin-top: 25px; border-right: 4px solid #ff6b6b;">
+                <h5 style="color: #ff6b6b; margin-top: 0;">איך בוחרים משפט קסום טוב?</h5>
+                <ul style="padding-right: 20px; color: #555;">
+                    <li style="margin-bottom: 10px;">בחרו משפט שגורם לכם להרגיש חזקים</li>
+                    <li style="margin-bottom: 10px;">המשפט צריך להיות חיובי ומעודד</li>
+                    <li>זה בסדר אם זה לוקח כמה ניסויים עד שתמצאו את המשפט הנכון לכם</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="activity-section">
+    <h3>🎯 אסטרטגיות להרגעה</h3>
+    <p>דרכים שונות שיעזרו לכם להרגיש טוב יותר כשאתם מוטרדים:</p>
+    
+    <div class="game-container">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin: 25px 0;">
+            <div style="background: #fff8e1; padding: 20px; border-radius: 15px; border-right: 4px solid #ffc107;">
+                <div style="font-size: 2rem; margin-bottom: 15px;">🌬️</div>
+                <h4 style="margin: 0 0 15px 0; color: #ff8f00;">נשימות עמוקות</h4>
+                <p style="color: #555; margin: 0 0 15px 0;">שאפו אוויר לאט דרך האף למשך 4 שניות, החזיקו ל-4 שניות, ונשפו דרך הפה ל-6 שניות.</p>
+                <button class="btn" style="background: #ffc107; color: #333;" onclick="startBreathingExercise()">התחל תרגיל נשימה</button>
+            </div>
+            
+            <div style="background: #e8f5e9; padding: 20px; border-radius: 15px; border-right: 4px solid #4CAF50;">
+                <div style="font-size: 2rem; margin-bottom: 15px;">🧘</div>
+                <h4 style="margin: 0 0 15px 0; color: #2e7d32;">הרפיית שרירים</h4>
+                <p style="color: #555; margin: 0 0 15px 0;">הדקו כל קבוצת שרירים למשך 5 שניות ואז שחררו. התחילו מכפות הרגליים ועד הראש.</p>
+                <button class="btn" style="background: #4CAF50;" onclick="startMuscleRelaxation()">התחל תרגיל הרפיה</button>
+            </div>
+            
+            <div style="background: #e3f2fd; padding: 20px; border-radius: 15px; border-right: 4px solid #2196F3;">
+                <div style="font-size: 2rem; margin-bottom: 15px;">🖍️</div>
+                <h4 style="margin: 0 0 15px 0; color: #1565c0;">ציור והבעה</h4>
+                <p style="color: #555; margin: 0 0 15px 0;">ציירו איך אתם מרגישים. אין צורך בציור מושלם - רק תנו לרגשות לצאת החוצה.</p>
+                <button class="btn" style="background: #2196F3;" onclick="startDrawing()">התחל לצייר</button>
+            </div>
+        </div>
+        
+        <div id="breathingExercise" style="display: none; text-align: center; margin-top: 30px; padding: 30px; background: #fff8e1; border-radius: 15px;">
+            <div id="breathingCircle" style="width: 150px; height: 150px; background: #ffecb3; border-radius: 50%; margin: 0 auto 30px; display: flex; align-items: center; justify-content: center; font-size: 2rem; transition: all 1s ease;">
+                🌬️
+            </div>
+            <h3 id="breathingText" style="margin: 0 0 15px 0;">הכינו את עצמכם</h3>
+            <p id="breathingInstruction" style="color: #555; margin: 0 0 20px 0;">נתחיל בעוד 3 שניות</p>
+            <button class="btn" style="background: #ff8f00;" onclick="stopExercise()">הפסק</button>
+        </div>
+        
+        <div id="drawingArea" style="display: none; margin-top: 30px; text-align: center;">
+            <canvas id="drawingCanvas" width="100%" height="400" style="border: 2px dashed #ddd; border-radius: 10px; margin-bottom: 20px; background: white;"></canvas>
+            <div>
+                <button class="btn" style="background: #2196F3; margin: 0 5px;" onclick="clearCanvas()">מחק הכל</button>
+                <button class="btn" style="background: #4CAF50; margin: 0 5px;" onclick="saveDrawing()">שמור ציור</button>
+                <button class="btn" style="background: #f44336; margin: 0 5px;" onclick="closeDrawing()">סגור</button>
+            </div>
+        </div>
+    </div>
+</div>
