@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="he">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>הכנה לכיתה א' - נעה כהן מרפאה בעיסוק</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="assets/js/misc.js"></script>
+    <script src="assets/js/emotional.js"></script>
+    <script src="assets/js/backpack.js"></script>
+    <script src="assets/js/school.js"></script>
+    <script src="assets/js/memory.js"></script>
+    <script src="assets/js/executive.js"></script>
+    <script src="assets/js/social.js"></script>
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">
+                <img src="assets/images/logo.jpg" alt="נעה כהן - מרפאה בעיסוק" style="width: 180%; height: 180%; object-fit: contain;">
+            </div>
+            <h1>🌟 הכנה לכיתה א'</h1>
+            <p>מסע משותף של הורים וילדים לקראת השלב המרגש</p>
+        </div>
+
+        <div class="main-content">
+            <div class="main-tabs">
+                <button class="main-tab active" onclick="showTab('home')">🏠 דף ראשי</button>
+                <button class="main-tab" onclick="showTab('school')">🏫 בית הספר</button>
+                <button class="main-tab" onclick="showTab('memory')">🧠 קשב וזיכרון</button>
+                <button class="main-tab" onclick="showTab('executive')">🎯 תפקודים ניהוליים</button>
+                <button class="main-tab" onclick="showTab('emotions')">💚 ויסות רגשי</button>
+                <button class="main-tab" onclick="showTab('social')">🤝 מיומנויות חברתיות</button>
+                <button class="main-tab" onclick="showTab('backpack')">🎒 התרמיל הרגשי</button>
+            </div>
+
+            <!-- Home Page -->
+            <div id="home" class="tab-content active">
+                <div class="welcome-section">
+                    <h2>🌈 ברוכים הבאים להכנה לכיתה א'</h2>
+                    <p>הכלי הדיגיטלי הזה נועד לשרת אתכם בצורה קלה ונגישה בכדי לפתח שיחה ולתמוך בילדים לאורך השלב המרגש של עלייה לכיתה א'.</p>
+                    <p>כל לשונית מכילה פעילויות, משחקים וכלים מעשיים שיעזרו לכם ולילדכם להתכונן יחד למסע החדש והמרגש הזה.</p>
+                    <p>השתמשו בכלי בקצב שלכם, תהנו מהתהליך ותזכרו - כל ילד מתפתח בקצב שלו והדרך החשובה ביותר היא לעודד ולתמוך.</p>
+                </div>
+
+                <div style="background: #f8f9fa; padding: 30px; border-radius: 15px; margin: 30px 0; border-right: 5px solid #667eea;">
+                    <h3 style="color: #333; margin-bottom: 20px; font-size: 1.8rem;">💡 מדריך להורים</h3>
+                    
+                    <div style="background: white; padding: 25px; border-radius: 10px; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+                        <h4 style="color: #667eea; margin-bottom: 15px;">🎯 איך להשתמש בכלי?</h4>
+                        <p style="line-height: 1.6; color: #666; margin-bottom: 15px;">
+                            המעבר לכיתה א' הוא שלב מרגש ומאתגר עבור ילדים והורים כאחד. הכלי הזה נועד לעזור לכם לנווט את התהליך בצורה חיובית ותומכת:
+                        </p>
+                        <ul style="color: #666; line-height: 1.6; margin-right: 20px;">
+                            <li style="margin-bottom: 10px;"><strong>עברו יחד על הלשוניות</strong> - התיישבו ביחד מול המחשב ותנו לילדכם להוביל</li>
+                            <li style="margin-bottom: 10px;"><strong>אל תמהרו</strong> - אפשר לעבור על לשונית אחת בכל פעם, לאורך כמה ימים</li>
+                            <li style="margin-bottom: 10px;"><strong>עודדו דיון</strong> - השתמשו בפעילויות כבסיס לשיחות על רגשות וחוויות</li>
+                            <li style="margin-bottom: 10px;"><strong>הדפיסו את התוצאות</strong> - התרמיל הרגשי יכול לשמש כזיכרון ואמצעי תקשורת עם המורה</li>
+                        </ul>
+                    </div>
+
+                    <div style="background: white; padding: 25px; border-radius: 10px; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+                        <h4 style="color: #ff6b6b; margin-bottom: 15px;">❤️ טיפים לליווי רגשי</h4>
+                        <ul style="color: #666; line-height: 1.6; margin-right: 20px;">
+                            <li style="margin-bottom: 10px;"><strong>אמתו רגשות</strong> - "זה בסדר להרגיש מפחד ומתרגש ביחד"</li>
+                            <li style="margin-bottom: 10px;"><strong>שתפו מהחוויה שלכם</strong> - ספרו איך הרגשתם כשהייתם בני 6</li>
+                            <li style="margin-bottom: 10px;"><strong>התמקדו בחיובי</strong> - חזקו את הביטחון העצמי והיכולות של הילד</li>
+                            <li style="margin-bottom: 10px;"><strong>היו סבלניים</strong> - לכל ילד יש קצב התפתחות אחר</li>
+                        </ul>
+                    </div>
+
+                    <div style="background: white; padding: 25px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+                        <h4 style="color: #4CAF50; margin-bottom: 15px;">🌱 יתרונות הכלי</h4>
+                        <ul style="color: #666; line-height: 1.6; margin-right: 20px;">
+                            <li style="margin-bottom: 10px;"><strong>הכנה הדרגתית</strong> - חשיפה למושגים ולסיטואציות של בית הספר</li>
+                            <li style="margin-bottom: 10px;"><strong>פיתוח מודעות עצמית</strong> - הילד לומד להכיר את עצמו ואת הרגשות שלו</li>
+                            <li style="margin-bottom: 10px;"><strong>בניית ביטחון</strong> - התרגלות למצבים חדשים בסביבה בטוחה</li>
+                            <li style="margin-bottom: 10px;"><strong>חיזוק הקשר</strong> - זמן איכות משותף בין הורה לילד</li>
+                            <li style="margin-bottom: 10px;"><strong>תקשורת עם המורה</strong> - התרמיל יכול לשמש לשיתוף מידע חשוב</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin: 30px 0;">
+                    <h3 style="color: #333; margin-bottom: 20px; font-size: 1.8rem;">🎮 התחילו את המסע שלכם!</h3>
+                    <p style="color: #666; font-size: 1.1rem; margin-bottom: 20px;">בחרו באחת מהלשוניות למעלה כדי להתחיל</p>
+                    <div style="background: linear-gradient(45deg, #ff6b6b, #ffa726); color: white; padding: 20px; border-radius: 15px; display: inline-block;">
+                        <div style="font-size: 3rem; margin-bottom: 10px;">🎒</div>
+                        <div style="font-size: 1.2rem; font-weight: 600;">המטרה: לבנות ביחד את התרמיל הרגשי לכיתה א'!</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- School Tab -->
+            <div id="school" class="tab-content">
+                <div class="activity-section">
+                    <h3>🏫 משחק סדר היום בבית הספר</h3>
+                    <p>בואו נסדר יחד את סדר היום בבית הספר! לחצו על הפעולות למקום הנכון:</p>
+                    
+                    <div class="game-container">
+                        <h4>🔄 סדרו את היום בבית הספר</h4>
+                        <p>מה קורה קודם ומה קורה אחר כך?</p>
+                        
+                        <div id="schoolDayItems" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin: 20px 0;">
+                            <div class="clickable-item" data-order="6" onclick="moveToDropZone(this, 'schoolDayOrder')">
+                                <div class="item-emoji">🚌</div>
+                                <div class="item-text">נסיעה הביתה בהסעה</div>
+                            </div>
+                            <div class="clickable-item" data-order="2" onclick="moveToDropZone(this, 'schoolDayOrder')">
+                                <div class="item-emoji">🚪</div>
+                                <div class="item-text">כניסה לכיתה</div>
+                            </div>
+                            <div class="clickable-item" data-order="4" onclick="moveToDropZone(this, 'schoolDayOrder')">
+                                <div class="item-emoji">🍎</div>
+                                <div class="item-text">הפסקה ראשונה</div>
+                            </div>
+                            <div class="clickable-item" data-order="1" onclick="moveToDropZone(this, 'schoolDayOrder')">
+                                <div class="item-emoji">🏫</div>
+                                <div class="item-text">הגעה לבית הספר</div>
+                            </div>
+                            <div class="clickable-item" data-order="5" onclick="moveToDropZone(this, 'schoolDayOrder')">
+                                <div class="item-emoji">📖</div>
+                                <div class="item-text">שיעור שני</div>
+                            </div>
+                            <div class="clickable-item" data-order="3" onclick="moveToDropZone(this, 'schoolDayOrder')">
+                                <div class="item-emoji">📚</div>
+                                <div class="item-text">שיעור ראשון</div>
+                            </div>
+                        </div>
+                        
+                        <div class="drop-zone" id="schoolDayOrder" style="min-height: 120px; border: 2px dashed #ddd; border-radius: 10px; padding: 20px; margin: 20px 0; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: center;">
+                            <h4 style="width: 100%; text-align: center; color: #666; margin-bottom: 10px;">📝 סדרו כאן את סדר היום:</h4>
+                        </div>
+                        
+                        <div style="text-align: center;">
+                            <button class="btn btn-secondary" onclick="checkSchoolDayOrder()">✅ בדוק סדר</button>
+                        </div>
+                        
+                        <div id="schoolDayResult" style="margin-top: 20px; font-size: 1.2rem; font-weight: bold; text-align: center;"></div>
+                    </div>
+                </div>
+
+                <div class="activity-section">
+                    <h3>🎯 משחק מיון - מה שייך לבית הספר?</h3>
+                    <p>בואו נמיין יחד! לחצו על פריט ואז על הקטגוריה המתאימה לו:</p>
+                    
+                    <div class="game-container">
+                        <h4>🔍 מיון חכם</h4>
+                        <p>חשבו טוב - האם זה שייך לבית הספר, לא שייך, או אולי כן?</p>
+                        
+                        <div id="sortingItems" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 15px; margin: 20px 0;">
+                            <div class="sortable-item" data-category="yes" onclick="selectSortableItem(this)">
+                                <div class="item-emoji">📚</div>
+                                <div class="item-text">ספר לימוד</div>
+                            </div>
+                            <div class="sortable-item" data-category="no" onclick="selectSortableItem(this)">
+                                <div class="item-emoji">🛏️</div>
+                                <div class="item-text">מיטה</div>
+                            </div>
+                            <div class="sortable-item" data-category="yes" onclick="selectSortableItem(this)">
+                                <div class="item-emoji">✏️</div>
+                                <div class="item-text">עיפרון</div>
+                            </div>
+                            <div class="sortable-item" data-category="maybe" onclick="selectSortableItem(this)">
+                                <div class="item-emoji">🧸</div>
+                                <div class="item-text">דובי קטן</div>
+                            </div>
+                            <div class="sortable-item" data-category="no" onclick="selectSortableItem(this)">
+                                <div class="item-emoji">🍳</div>
+                                <div class="item-text">מחבת</div>
+                            </div>
+                            <div class="sortable-item" data-category="yes" onclick="selectSortableItem(this)">
+                                <div class="item-emoji">🎒</div>
+                                <div class="item-text">תיק</div>
+                            </div>
+                            <div class="sortable-item" data-category="maybe" onclick="selectSortableItem(this)">
+                                <div class="item-emoji">🍎</div>
+                                <div class="item-text">תפוח</div>
+                            </div>
+                            <div class="sortable-item" data-category="no" onclick="selectSortableItem(this)">
+                                <div class="item-emoji">🚗</div>
+                                <div class="item-text">מכונית</div>
+                            </div>
+                            <div class="sortable-item" data-category="yes" onclick="selectSortableItem(this)">
+                                <div class="item-emoji">📐</div>
+                                <div class="item-text">סרגל</div>
+                            </div>
+                            <div class="sortable-item" data-category="maybe" onclick="selectSortableItem(this)">
+                                <div class="item-emoji">⚽</div>
+                                <div class="item-text">כדור</div>
+                            </div>
+                            <div class="sortable-item" data-category="no" onclick="selectSortableItem(this)">
+                                <div class="item-emoji">🔧</div>
+                                <div class="item-text">מברג</div>
+                            </div>
+                            <div class="sortable-item" data-category="maybe" onclick="selectSortableItem(this)">
+                                <div class="item-emoji">🎨</div>
+                                <div class="item-text">צבעים</div>
+                            </div>
+                        </div>
+                        
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin: 20px 0;" id="sortingDropZones">
+                            <div class="sorting-zone" data-category="yes" style="background: #e8f5e8;" onclick="moveSelectedToZone('yes')">
+                                <h4>✅ שייך לבית הספר</h4>
+                                <div class="sorting-zone-items" data-category="yes"></div>
+                            </div>
+                            <div class="sorting-zone" data-category="maybe" style="background: #fff3e0;" onclick="moveSelectedToZone('maybe')">
+                                <h4>🤔 אולי שייך</h4>
+                                <div class="sorting-zone-items" data-category="maybe"></div>
+                            </div>
+                            <div class="sorting-zone" data-category="no" style="background: #ffebee;" onclick="moveSelectedToZone('no')">
+                                <h4>❌ לא שייך</h4>
+                                <div class="sorting-zone-items" data-category="no"></div>
+                            </div>
+                        </div>
+                        
+                        <div style="text-align: center;">
+                            <button class="btn btn-secondary" onclick="checkSortingAnswers()">✅ בדוק מיון</button>
+                        </div>
+                        
+                        <div id="sortingResult" style="margin-top: 20px; font-size: 1.2rem; font-weight: bold; text-align: center;"></div>
+                    </div>
+                </div>
+
+                <div class="activity-section">
+                    <h3>🎈 נשימת הבלון הקסומה</h3>
+                    <p>בואו נלמד יחד נשימה שתעזור לנו להרגיש רגועים!</p>
+                    
+                    <div class="game-container" style="text-align: center;">
+                        <div style="background: #e3f2fd; padding: 20px; border-radius: 10px; margin-bottom: 20px;">
+                            <p><strong>איך עושים נשימת בלון?</strong></p>
+                            <p>1. שימו יד על הבטן</p>
+                            <p>2. הכניסו אוויר לאט דרך האף - הבטן מתנפחת כמו בלון 🎈</p>
+                            <p>3. עצרו רגע</p>
+                            <p>4. הוציאו אוויר לאט דרך הפה - הבלון מתרוקן 💨</p>
+                        </div>
+                        
+                        <div style="width: 150px; height: 150px; background: linear-gradient(45deg, #ff6b6b, #ffa726); border-radius: 50%; margin: 30px auto; display: flex; align-items: center; justify-content: center; color: white; font-size: 1rem; font-weight: 600; transition: all 4s ease; box-shadow: 0 10px 30px rgba(0,0,0,0.2);" id="schoolBalloon">
+                            <span id="schoolBalloonText">נשימה רגועה 😌</span>
+                        </div>
+                        
+                        <div>
+                            <button class="btn btn-secondary" onclick="startBreathing()">🌟 התחל נשימת בלון</button>
+                            <button class="btn" onclick="stopBreathing()">⏹️ עצור</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Memory Tab -->
+            <div id="memory" class="tab-content">
+                <div class="activity-section">
+                    <h3>🧠 משחקי קשב וזיכרון</h3>
+                    <p>בואו נחזק את הזיכרון והקשב שלנו במשחקים מהנים!</p>
+                    
+                    <div class="game-container">
+                        <h4>🔍 משחק זיכרון - מה השתנה?</h4>
+                        <p id="memoryInstructions">לחצו "התחל משחק" כדי להתחיל!</p>
+                        
+                        <div id="memoryGrid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; max-width: 300px; margin: 20px auto;">
+                            <!-- Memory cards will be generated here -->
+                        </div>
+                        
+                        <div style="text-align: center; margin-top: 20px;">
+                            <button id="startMemoryBtn" class="btn btn-secondary" onclick="startMemoryGame()">🎮 התחל משחק</button>
+                            <button id="hideCardsBtn" class="btn" style="display: none;" onclick="hideCards()">👁️ הסתר כרטיסים</button>
+                            <button id="revealCardsBtn" class="btn btn-secondary" style="display: none;" onclick="selectMemoryAnswer()">👀 חשוף כרטיסים</button>
+                            <button id="checkMemoryBtn" class="btn" style="display: none;" onclick="checkMemory()">✅ בדוק תשובה</button>
+                            <button id="resetMemoryBtn" class="btn" style="display: none;" onclick="resetMemoryGame()">🔄 משחק חדש</button>
+                        </div>
+                        
+                        <div id="memoryResult" style="margin-top: 20px; font-size: 1.2rem; font-weight: bold; text-align: center;"></div>
+                        
+                        <div id="memoryQuestion" style="margin-top: 20px; padding: 20px; background: #f0f8ff; border-radius: 10px; display: none;">
+                            <h5>🤔 אילו פריטים החליפו מקום?</h5>
+                            <div id="memoryOptions" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 15px;">
+                                <!-- Options will be generated here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="activity-section">
+                    <h3>🎯 משחק ריכוז - זכור את הרצף</h3>
+                    <p>בואו נראה כמה פריטים אתם יכולים לזכור ברצף!</p>
+                    
+                    <div class="game-container">
+                        <h4>📝 זכרו את הרצף</h4>
+                        <div style="background: #e3f2fd; padding: 15px; border-radius: 10px; margin-bottom: 20px;">
+                            <p style="margin: 0; font-size: 0.9rem;">
+                                <strong>רמות המשחק:</strong><br>
+                                🌟 רמה 1-2: 2 פריטים<br>
+                                🌟 רמה 3-4: 3 פריטים<br>
+                                🌟 רמה 5-6: 4 פריטים<br>
+                                🌟 רמה 7+: 5 פריטים
+                            </p>
+                        </div>
+                        
+                        <div id="sequenceDisplay" style="min-height: 150px; padding: 20px; background: #f8f9fa; border-radius: 10px; margin: 20px 0; display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 15px;">
+                            <p style="color: #666;">לחצו על "התחל" כדי לראות את הרצף</p>
+                        </div>
+                        
+                        <div style="text-align: center;">
+                            <button class="btn btn-secondary" onclick="startSequenceGame()">🚀 התחל</button>
+                            <span id="sequenceLevel" style="margin: 0 20px; font-weight: bold; font-size: 1.2rem;">רמה: 1</span>
+                        </div>
+                        
+                        <div id="sequenceInput" style="margin-top: 20px; display: none;">
+                            <p style="text-align: center; margin-bottom: 15px; font-size: 1.1rem;">בחרו את הפריטים בסדר הנכון:</p>
+                            <div id="sequenceOptions" style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
+                                <!-- Options will be generated here -->
+                            </div>
+                            <div style="text-align: center; margin-top: 20px;">
+                                <button class="btn" onclick="checkSequence()">✅ בדוק רצף</button>
+                            </div>
+                        </div>
+                        
+                        <div id="sequenceResult" style="margin-top: 20px; font-size: 1.2rem; font-weight: bold; text-align: center;"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Executive Tab -->
+            <div id="executive" class="tab-content">
+                <div class="activity-section">
+                    <h3>🎯 תפקודים ניהוליים</h3>
+                    <p>בואו נפתח חשיבה גמישה ונלמד לפתור בעיות!</p>
+                    
+                    <div class="game-container">
+                        <h4>🧩 סדר הפעולות - הכנת סנדוויץ'</h4>
+                        <p>לחצו על הפריטים לפי הסדר הנכון להכנת סנדוויץ':</p>
+                        
+                        <div id="sandwichSteps" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; margin: 20px 0;">
+                            <div class="clickable-item" onclick="addToSequence(this, 'sandwichOrder')">
+                                <div class="item-emoji">🥪</div>
+                                <div class="item-text">סנדוויץ' מוכן!</div>
+                            </div>
+                            <div class="clickable-item" onclick="addToSequence(this, 'sandwichOrder')">
+                                <div class="item-emoji">🍞</div>
+                                <div class="item-text">לוקחים פרוסה</div>
+                            </div>
+                            <div class="clickable-item" onclick="addToSequence(this, 'sandwichOrder')">
+                                <div class="item-emoji">🍞</div>
+                                <div class="item-text">פרוסה שנייה</div>
+                            </div>
+                            <div class="clickable-item" onclick="addToSequence(this, 'sandwichOrder')">
+                                <div class="item-emoji">🍫</div>
+                                <div class="item-text">מורחים שוקולד</div>
+                            </div>
+                        </div>
+                        
+                        <div class="sorting-zone" id="sandwichOrder" style="min-height: 80px; border: 2px dashed #4CAF50; border-radius: 10px; padding: 15px; margin: 20px 0; background-color: #f8fff8;">
+                            <h4 style="width: 100%; text-align: center; color: #4CAF50; margin: 0 0 10px 0;">📝 הסדר שלך להכנת סנדוויץ':</h4>
+                            <div style="display: flex; flex-wrap: wrap; gap: 10px; min-height: 40px;" id="sandwichSequence">
+                                <p style="margin: 0; color: #888; width: 100%; text-align: center;" id="sandwichPlaceholder">הקלק על הפריטים לפי הסדר הנכון</p>
+                            </div>
+                        </div>
+                        
+                        <div style="display: flex; justify-content: center; gap: 15px; margin-top: 15px;">
+                            <button class="btn btn-primary" onclick="checkExecutiveOrder('sandwich')">✅ בדוק סדר</button>
+                        </div>
+                        
+                        <div id="sandwichResult" style="margin-top: 20px; font-size: 1.2rem; font-weight: bold; text-align: center;"></div>
+                    </div>
+                </div>
+
+                <div class="activity-section">
+                    <h3>🪴 סדר הפעולות - שתילת פרח</h3>
+                    <p>בואו נסדר ביחד את השלבים הנכונים לשתילת פרח!</p>
+                    
+                    <div class="game-container">
+                        <h4>🌻 איך שותלים פרח?</h4>
+                        <p>לחצו על השלבים לפי הסדר הנכון:</p>
+                        
+                        <div id="plantSteps" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin: 20px 0;">
+                            <div class="clickable-item" onclick="addToSequence(this, 'plantOrder')" data-order="3">
+                                <div class="item-emoji">🌱</div>
+                                <div class="item-text">מניחים באדמה</div>
+                            </div>
+                            <div class="clickable-item" onclick="addToSequence(this, 'plantOrder')" data-order="5">
+                                <div class="item-emoji">🌻</div>
+                                <div class="item-text">פרח יפה!</div>
+                            </div>
+                            <div class="clickable-item" onclick="addToSequence(this, 'plantOrder')" data-order="1">
+                                <div class="item-emoji">🪴</div>
+                                <div class="item-text">לוקחים עציץ</div>
+                            </div>
+                            <div class="clickable-item" onclick="addToSequence(this, 'plantOrder')" data-order="4">
+                                <div class="item-emoji">💧</div>
+                                <div class="item-text">משקים במים</div>
+                            </div>
+                            <div class="clickable-item" onclick="addToSequence(this, 'plantOrder')" data-order="2">
+                                <div class="item-emoji">🌿</div>
+                                <div class="item-text">מוציאים שתיל</div>
+                            </div>
+                        </div>
+                        
+                        <div id="plantOrder" style="min-height: 120px; border: 2px dashed #ddd; border-radius: 10px; padding: 20px; margin: 20px 0; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: center;">
+                            <h4 style="width: 100%; text-align: center; color: #666;">📝 סדרו כאן את השלבים:</h4>
+                        </div>
+                        
+                        <div style="text-align: center;">
+                            <button class="btn btn-secondary" onclick="checkExecutiveOrder('plant')">✅ בדוק סדר</button>
+                        </div>
+                        
+                        <div id="plantResult" style="margin-top: 20px; font-size: 1.2rem; font-weight: bold; text-align: center;"></div>
+                    </div>
+                </div>
+
+                <div class="activity-section">
+                    <h3>💡 פתרון בעיות - מה אפשר לעשות?</h3>
+                    <p>בואו נחשוב יחד על פתרונות יצירתיים לבעיות יומיומיות!</p>
+                    
+                    <div class="game-container">
+                        <h4>🤔 בחרו סיטואציה ודברו על פתרונות אפשריים:</h4>
+                        
+                        <div id="problemSituations" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin: 20px 0;">
+                            <div style="background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 25px; border-radius: 15px; cursor: pointer; transition: all 0.3s ease;" onclick="showProblem('rain')">
+                                <div style="font-size: 3rem; text-align: center; margin-bottom: 10px;">🌧️</div>
+                                <div style="text-align: center; font-weight: 600;">יורד גשם ושכחתי מטריה</div>
+                            </div>
+                            
+                            <div style="background: linear-gradient(135deg, #ff6b6b, #ffa726); color: white; padding: 25px; border-radius: 15px; cursor: pointer; transition: all 0.3s ease;" onclick="showProblem('toy')">
+                                <div style="font-size: 3rem; text-align: center; margin-bottom: 10px;">🧸</div>
+                                <div style="text-align: center; font-weight: 600;">הצעצוע האהוב נקרע</div>
+                            </div>
+                            
+                            <div style="background: linear-gradient(135deg, #4CAF50, #45a049); color: white; padding: 25px; border-radius: 15px; cursor: pointer; transition: all 0.3s ease;" onclick="showProblem('light')">
+                                <div style="font-size: 3rem; text-align: center; margin-bottom: 10px;">💡</div>
+                                <div style="text-align: center; font-weight: 600;">הפסקת חשמל</div>
+                            </div>
+                            
+                            <div style="background: linear-gradient(135deg, #f06292, #ec407a); color: white; padding: 25px; border-radius: 15px; cursor: pointer; transition: all 0.3s ease;" onclick="showProblem('hungry')">
+                                <div style="font-size: 3rem; text-align: center; margin-bottom: 10px;">🍎</div>
+                                <div style="text-align: center; font-weight: 600;">רעב ואין אוכל מוכן</div>
+                            </div>
+                            
+                            <div style="background: linear-gradient(135deg, #42a5f5, #2196f3); color: white; padding: 25px; border-radius: 15px; cursor: pointer; transition: all 0.3s ease;" onclick="showProblem('lost')">
+                                <div style="font-size: 3rem; text-align: center; margin-bottom: 10px;">🔍</div>
+                                <div style="text-align: center; font-weight: 600;">איבדתי משהו חשוב</div>
+                            </div>
+                            
+                            <div style="background: linear-gradient(135deg, #ab47bc, #9c27b0); color: white; padding: 25px; border-radius: 15px; cursor: pointer; transition: all 0.3s ease;" onclick="showProblem('bored')">
+                                <div style="font-size: 3rem; text-align: center; margin-bottom: 10px;">😴</div>
+                                <div style="text-align: center; font-weight: 600;">משעמם ואין מה לעשות</div>
+                            </div>
+                        </div>
+                        
+                        <div id="problemDisplay" style="display: none; margin-top: 30px; padding: 25px; background: #f0f8ff; border-radius: 15px;">
+                            <h5 id="problemTitle" style="font-size: 1.5rem; margin-bottom: 20px; text-align: center;"></h5>
+                            
+                            <div style="background: white; padding: 20px; border-radius: 10px; margin-bottom: 20px;">
+                                <p style="font-weight: 600; color: #667eea; margin-bottom: 10px;">💭 שאלות לחשוב עליהן:</p>
+                                <ul id="problemQuestions" style="list-style: none; padding: 0;">
+                                    <!-- Questions will be generated here -->
+                                </ul>
+                            </div>
+                            
+                            <div style="background: #e8f5e8; padding: 20px; border-radius: 10px;">
+                                <p style="font-weight: 600; color: #4CAF50; margin-bottom: 10px;">💡 רעיונות לפתרונות:</p>
+                                <div id="solutionIdeas" style="display: grid; gap: 10px;">
+                                    <!-- Solution ideas will be shown here -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Emotions Tab -->
+            <div id="emotions" class="tab-content">
+                <div class="activity-section">
+                    <h3>💚 ויסות רגשי</h3>
+                    <p>בואו נכיר את הרגשות שלנו ונלמד איך להתמודד איתם!</p>
+                    
+                    <div class="game-container">
+                        <h4>🌈 איך אני מרגיש היום?</h4>
+                        <p>לחצו על הרגש שמתאים לכם:</p>
+                        
+                        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin: 20px 0;">
+                            <div style="background: white; padding: 20px; border-radius: 10px; text-align: center; cursor: pointer; transition: all 0.3s ease; border: 2px solid transparent;" onclick="selectEmotion(this, 'שמח')">
+                                <div style="font-size: 3rem; margin-bottom: 10px;">😊</div>
+                                <div>שמח/שמחה</div>
+                            </div>
+                            <div style="background: white; padding: 20px; border-radius: 10px; text-align: center; cursor: pointer; transition: all 0.3s ease; border: 2px solid transparent;" onclick="selectEmotion(this, 'עצוב')">
+                                <div style="font-size: 3rem; margin-bottom: 10px;">😢</div>
+                                <div>עצוב/עצובה</div>
+                            </div>
+                            <div style="background: white; padding: 20px; border-radius: 10px; text-align: center; cursor: pointer; transition: all 0.3s ease; border: 2px solid transparent;" onclick="selectEmotion(this, 'מתרגש')">
+                                <div style="font-size: 3rem; margin-bottom: 10px;">🤩</div>
+                                <div>מתרגש/מתרגשת</div>
+                            </div>
+                            <div style="background: white; padding: 20px; border-radius: 10px; text-align: center; cursor: pointer; transition: all 0.3s ease; border: 2px solid transparent;" onclick="selectEmotion(this, 'כועס')">
+                                <div style="font-size: 3rem; margin-bottom: 10px;">😡</div>
+                                <div>כועס/כועסת</div>
+                            </div>
+                            <div style="background: white; padding: 20px; border-radius: 10px; text-align: center; cursor: pointer; transition: all 0.3s ease; border: 2px solid transparent;" onclick="selectEmotion(this, 'מפחד')">
+                                <div style="font-size: 3rem; margin-bottom: 10px;">😰</div>
+                                <div>מפחד/מפחדת</div>
+                            </div>
+                            <div style="background: white; padding: 20px; border-radius: 10px; text-align: center; cursor: pointer; transition: all 0.3s ease; border: 2px solid transparent;" onclick="selectEmotion(this, 'מופתע')">
+                                <div style="font-size: 3rem; margin-bottom: 10px;">😲</div>
+                                <div>מופתע/מופתעת</div>
+                            </div>
+                            <div style="background: white; padding: 20px; border-radius: 10px; text-align: center; cursor: pointer; transition: all 0.3s ease; border: 2px solid transparent;" onclick="selectEmotion(this, 'גאה')">
+                                <div style="font-size: 3rem; margin-bottom: 10px;">😌</div>
+                                <div>גאה בעצמי</div>
+                            </div>
+                            <div style="background: white; padding: 20px; border-radius: 10px; text-align: center; cursor: pointer; transition: all 0.3s ease; border: 2px solid transparent;" onclick="selectEmotion(this, 'מבולבל')">
+                                <div style="font-size: 3rem; margin-bottom: 10px;">😕</div>
+                                <div>מבולבל/מבולבלת</div>
+                            </div>
+                        </div>
+                        
+                        <div id="emotionTalk" style="margin-top: 20px; padding: 20px; background: #f0f8ff; border-radius: 10px; display: none;">
+                            <h5>💭 בואו נדבר על זה:</h5>
+                            <p id="emotionQuestion"></p>
+                            <textarea class="input-field" id="emotionResponse" placeholder="כתבו כאן את המחשבות שלכם..."></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="activity-section">
+                    <h3>🌟 המשפט הקסום שלי</h3>
+                    <p>כשאני מרגיש מוטרד או לחוץ, אני יכול להגיד לעצמי משפט מיוחד שיעזור לי להרגיש טוב יותר!</p>
+                    
+                    <div class="game-container">
+                        <h4>💫 בחרו את המשפט שהכי מתאים לכם:</h4>
+                        
+                        <div style="display: grid; gap: 15px; margin: 20px 0;">
+                            <div style="background: linear-gradient(135deg, #ff6b6b, #ffa726); color: white; padding: 20px; border-radius: 15px; cursor: pointer; transition: all 0.3s ease; text-align: center;" onclick="selectCalmingPhrase(this, 'אני בטוח ואני יכול')">
+                                <div style="font-size: 1.8rem; margin-bottom: 10px;">💪</div>
+                                <div style="font-size: 1.2rem; font-weight: 600;">"אני בטוח ואני יכול"</div>
+                            </div>
+                            
+                            <div style="background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 20px; border-radius: 15px; cursor: pointer; transition: all 0.3s ease; text-align: center;" onclick="selectCalmingPhrase(this, 'הכל יהיה בסדר')">
+                                <div style="font-size: 1.8rem; margin-bottom: 10px;">🌈</div>
+                                <div style="font-size: 1.2rem; font-weight: 600;">"הכל יהיה בסדר"</div>
+                            </div>
+                            
+                            <div style="background: linear-gradient(135deg, #4CAF50, #45a049); color: white; padding: 20px; border-radius: 15px; cursor: pointer; transition: all 0.3s ease; text-align: center;" onclick="selectCalmingPhrase(this, 'אני נושם עמוק ונרגע')">
+                                <div style="font-size: 1.8rem; margin-bottom: 10px;">🌬️</div>
+                                <div style="font-size: 1.2rem; font-weight: 600;">"אני נושם עמוק ונרגע"</div>
+                            </div>
+                            
+                            <div style="background: linear-gradient(135deg, #ab47bc, #9c27b0); color: white; padding: 20px; border-radius: 15px; cursor: pointer; transition: all 0.3s ease; text-align: center;" onclick="selectCalmingPhrase(this, 'אני אהוב ומוקף בטוב')">
+                                <div style="font-size: 1.8rem; margin-bottom: 10px;">❤️</div>
+                                <div style="font-size: 1.2rem; font-weight: 600;">"אני אהוב ומוקף בטוב"</div>
+                            </div>
+                            
+                            <div style="background: linear-gradient(135deg, #f06292, #ec407a); color: white; padding: 20px; border-radius: 15px; cursor: pointer; transition: all 0.3s ease; text-align: center;" onclick="selectCalmingPhrase(this, 'גם זה יעבור')">
+                                <div style="font-size: 1.8rem; margin-bottom: 10px;">☀️</div>
+                                <div style="font-size: 1.2rem; font-weight: 600;">"גם זה יעבור"</div>
+                            </div>
+                            
+                            <div style="background: linear-gradient(135deg, #42a5f5, #2196f3); color: white; padding: 20px; border-radius: 15px; cursor: pointer; transition: all 0.3s ease; text-align: center;" onclick="selectCalmingPhrase(this, 'אני עושה כמיטב יכולתי')">
+                                <div style="font-size: 1.8rem; margin-bottom: 10px;">⭐</div>
+                                <div style="font-size: 1.2rem; font-weight: 600;">"אני עושה כמיטב יכולתי"</div>
+                            </div>
+                        </div>
+                        
+                        <div style="background: #f0f8ff; padding: 20px; border-radius: 10px; margin-top: 20px;">
+                            <h5>💝 כתבו משפט משלכם:</h5>
+                            <input type="text" id="customPhraseInput" class="input-field" placeholder="המשפט הקסום שלי הוא...">
+                            <button class="btn" onclick="addCustomPhrase()">הוסף למשפטים שלי 🌟</button>
+                        </div>
+                        
+                        <div id="selectedPhrases" style="margin-top: 20px; padding: 20px; background: #e8f5e8; border-radius: 10px; display: none;">
+                            <h5>✨ המשפטים הקסומים שלי:</h5>
+                            <div id="phrasesList"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="activity-section">
+                    <h3>🎯 אסטרטגיות להרגעה</h3>
+                    <p>דרכים שונות שיעזרו לכם להרגיש טוב יותר כשאתם מוטרדים:</p>
+                    
+                    <div class="game-container">
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin: 20px 0;">
+                            <div style="background: #e3f2fd; padding: 20px; border-radius: 10px; text-align: center;">
+                                <div style="font-size: 2.5rem; margin-bottom: 10px;">🫁</div>
+                                <h5>נשימת בלון</h5>
+                                <p style="font-size: 0.9rem;">נושם לאט ועמוק כמו שלמדנו</p>
+                            </div>
+                            
+                            <div style="background: #f3e5f5; padding: 20px; border-radius: 10px; text-align: center;">
+                                <div style="font-size: 2.5rem; margin-bottom: 10px;">🤗</div>
+                                <h5>חיבוק לעצמי</h5>
+                                <p style="font-size: 0.9rem;">מחבק את עצמי חזק חזק</p>
+                            </div>
+                            
+                            <div style="background: #e8f5e8; padding: 20px; border-radius: 10px; text-align: center;">
+                                <div style="font-size: 2.5rem; margin-bottom: 10px;">🧸</div>
+                                <h5>חיבוק הדובי</h5>
+                                <p style="font-size: 0.9rem;">מחבק את הצעצוע האהוב</p>
+                            </div>
+                            
+                            <div style="background: #fff3e0; padding: 20px; border-radius: 10px; text-align: center;">
+                                <div style="font-size: 2.5rem; margin-bottom: 10px;">🗣️</div>
+                                <h5>דיבור עם מבוגר</h5>
+                                <p style="font-size: 0.9rem;">מספר למישהו איך אני מרגיש</p>
+                            </div>
+                            
+                            <div style="background: #ffebee; padding: 20px; border-radius: 10px; text-align: center;">
+                                <div style="font-size: 2.5rem; margin-bottom: 10px;">🎨</div>
+                                <h5>ציור או יצירה</h5>
+                                <p style="font-size: 0.9rem;">מביע את הרגשות בציור</p>
+                            </div>
+                            
+                            <div style="background: #e1f5fe; padding: 20px; border-radius: 10px; text-align: center;">
+                                <div style="font-size: 2.5rem; margin-bottom: 10px;">🎵</div>
+                                <h5>שיר או מוזיקה</h5>
+                                <p style="font-size: 0.9rem;">שומע שיר שאני אוהב</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Social Tab -->
+            <div id="social" class="tab-content">
+                <div class="activity-section">
+                    <h3>🤝 מיומנויות חברתיות</h3>
+                    <p>בואו נלמד איך להיות חברים טובים!</p>
+                    
+                    <div class="game-container">
+                        <h4>⚖️ דרכים להגיב</h4>
+                        <p>איך אפשר להגיב למצבים שונים?</p>
+                        
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin: 20px 0;">
+                            <div style="background: #e8f5e8; padding: 20px; border-radius: 10px;">
+                                <h5>💚 אסרטיביות</h5>
+                                <p>אני מבטא את הרגשות שלי בצורה ברורה ומכבדת</p>
+                                <p><em>"אני מרגיש כועס כשאתה לוקח את הצעצוע שלי בלי לשאול"</em></p>
+                            </div>
+                            <div style="background: #ffebee; padding: 20px; border-radius: 10px;">
+                                <h5>❤️ תוקפנות</h5>
+                                <p>אני כועס ופוגע באחרים</p>
+                                <p><em>"אתה גנב! תיתן לי את זה עכשיו!"</em></p>
+                            </div>
+                            <div style="background: #e3f2fd; padding: 20px; border-radius: 10px;">
+                                <h5>💙 ויתור</h5>
+                                <p>אני לא אומר מה אני רוצה</p>
+                                <p><em>"בסדר... קח את זה..."</em></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="activity-section">
+                    <h3>🎭 סיטואציות חברתיות - מה הייתם עושים?</h3>
+                    <p>בואו נתרגל יחד איך להתמודד עם מצבים שונים שקורים בכיתה ובמגרש!</p>
+                    
+                    <div class="game-container">
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin: 20px 0;">
+                            
+                            <!-- Situation 1: Sharing toys -->
+                            <div class="social-situation" style="background: white; border-radius: 15px; padding: 20px; border: 3px solid #ff6b6b; cursor: pointer; transition: all 0.3s ease;" onclick="showSocialSituation('sharing')">
+                                <div style="font-size: 5rem; text-align: center; margin-bottom: 15px;">🧸</div>
+                                <h5 style="color: #ff6b6b; text-align: center; font-size: 1.3rem; margin-bottom: 10px;">שיתוף צעצועים</h5>
+                                <p style="text-align: center; color: #666;">"יותם משחק עם הרכבת שאני רוצה לשחק איתה..."</p>
+                            </div>
+
+                            <!-- Situation 2: Joining a group -->
+                            <div class="social-situation" style="background: white; border-radius: 15px; padding: 20px; border: 3px solid #667eea; cursor: pointer; transition: all 0.3s ease;" onclick="showSocialSituation('joining')">
+                                <div style="font-size: 5rem; text-align: center; margin-bottom: 15px;">👥</div>
+                                <h5 style="color: #667eea; text-align: center; font-size: 1.3rem; margin-bottom: 10px;">הצטרפות לקבוצה</h5>
+                                <p style="text-align: center; color: #666;">"ילדים משחקים יחד ואני רוצה להצטרף..."</p>
+                            </div>
+
+                            <!-- Situation 3: Being excluded -->
+                            <div class="social-situation" style="background: white; border-radius: 15px; padding: 20px; border: 3px solid #ffa726; cursor: pointer; transition: all 0.3s ease;" onclick="showSocialSituation('excluded')">
+                                <div style="font-size: 5rem; text-align: center; margin-bottom: 15px;">😔</div>
+                                <h5 style="color: #ffa726; text-align: center; font-size: 1.3rem; margin-bottom: 10px;">הרגשה מחוץ לקבוצה</h5>
+                                <p style="text-align: center; color: #666;">"החברים לא רוצים שאשחק איתם..."</p>
+                            </div>
+
+                            <!-- Situation 4: Conflict resolution -->
+                            <div class="social-situation" style="background: white; border-radius: 15px; padding: 20px; border: 3px solid #4CAF50; cursor: pointer; transition: all 0.3s ease;" onclick="showSocialSituation('conflict')">
+                                <div style="font-size: 5rem; text-align: center; margin-bottom: 15px;">😤</div>
+                                <h5 style="color: #4CAF50; text-align: center; font-size: 1.3rem; margin-bottom: 10px;">ויכוח עם חבר</h5>
+                                <p style="text-align: center; color: #666;">"רבתי עם החבר הכי טוב שלי..."</p>
+                            </div>
+
+                            <!-- Situation 5: Helping others -->
+                            <div class="social-situation" style="background: white; border-radius: 15px; padding: 20px; border: 3px solid #ab47bc; cursor: pointer; transition: all 0.3s ease;" onclick="showSocialSituation('helping')">
+                                <div style="font-size: 5rem; text-align: center; margin-bottom: 15px;">🤲</div>
+                                <h5 style="color: #ab47bc; text-align: center; font-size: 1.3rem; margin-bottom: 10px;">עזרה לחבר</h5>
+                                <p style="text-align: center; color: #666;">"רואה שמישהו עצוב או צריך עזרה..."</p>
+                            </div>
+
+                            <!-- Situation 6: Being teased -->
+                            <div class="social-situation" style="background: white; border-radius: 15px; padding: 20px; border: 3px solid #f06292; cursor: pointer; transition: all 0.3s ease;" onclick="showSocialSituation('teasing')">
+                                <div style="font-size: 5rem; text-align: center; margin-bottom: 15px;">😢</div>
+                                <h5 style="color: #f06292; text-align: center; font-size: 1.3rem; margin-bottom: 10px;">התגרות או לעג</h5>
+                                <p style="text-align: center; color: #666;">"מישהו צוחק עלי או אומר דברים לא נחמדים..."</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Social Situation Details -->
+                <div id="socialSituationDetail" class="activity-section" style="display: none;">
+                    <div class="game-container">
+                        <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 30px; border-radius: 15px; margin-bottom: 20px; text-align: center;">
+                            <div id="situationEmoji" style="font-size: 4rem; margin-bottom: 15px;"></div>
+                            <h4 id="situationTitle" style="font-size: 1.8rem; margin-bottom: 15px;"></h4>
+                            <p id="situationDescription" style="font-size: 1.2rem; line-height: 1.5;"></p>
+                        </div>
+
+                        <div style="background: #f0f8ff; padding: 25px; border-radius: 15px; margin-bottom: 20px;">
+                            <h5 style="color: #667eea; margin-bottom: 15px; font-size: 1.3rem;">🤔 מה הייתם עושים במצב הזה?</h5>
+                            <div id="situationOptions" style="display: grid; gap: 15px;">
+                                <!-- Options will be generated here -->
+                            </div>
+                        </div>
+
+                        <div id="socialFeedback" style="display: none; padding: 25px; border-radius: 15px; margin-bottom: 20px;">
+                            <h5 style="margin-bottom: 15px;">💡 מה למדנו:</h5>
+                            <div id="feedbackContent"></div>
+                        </div>
+
+                        <div style="text-align: center;">
+                            <button class="btn" onclick="hideSocialSituation()">🔙 חזור לסיטואציות</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="activity-section">
+                    <h3>🦸‍♀️ כח העל שלי</h3>
+                    <p>כל אחד מאיתנו יש לו כוחות מיוחדים! בואו נגלה מה הכוח העל שלכם שיעזור לכם להשתלב בבית הספר!</p>
+                    
+                    <div class="game-container">
+                        <h4>💫 גלו את כח העל שלכם!</h4>
+                        <p>ענו על השאלות ותגלו איזה כוח מיוחד יש לכם:</p>
+                        
+                        <div style="background: #f0f8ff; padding: 25px; border-radius: 15px; margin-bottom: 25px;">
+                            <div id="superpowerQuiz">
+                                <div class="quiz-question" id="question1" style="display: block;">
+                                    <h5 style="color: #667eea; margin-bottom: 20px;">🎨 מה הכי כיף לכם לעשות?</h5>
+                                    <div style="display: grid; gap: 15px;">
+                                        <div class="quiz-option" style="background: white; padding: 15px; border-radius: 10px; cursor: pointer; border: 2px solid transparent; transition: all 0.3s ease;" onclick="selectQuizAnswer(1, 'creative', this)">
+                                            <strong>🎨 ליצור ולהמציא</strong> - אוהב/ת לצייר, לבנות, להמציא דברים חדשים
+                                        </div>
+                                        <div class="quiz-option" style="background: white; padding: 15px; border-radius: 10px; cursor: pointer; border: 2px solid transparent; transition: all 0.3s ease;" onclick="selectQuizAnswer(1, 'helper', this)">
+                                            <strong>🤝 לעזור לאחרים</strong> - אוהב/ת לדאוג לחברים ולעזור כשמישהו צריך
+                                        </div>
+                                        <div class="quiz-option" style="background: white; padding: 15px; border-radius: 10px; cursor: pointer; border: 2px solid transparent; transition: all 0.3s ease;" onclick="selectQuizAnswer(1, 'leader', this)">
+                                            <strong>👑 להוביל משחקים</strong> - אוהב/ת לארגן פעילויות ולהוביל קבוצות
+                                        </div>
+                                        <div class="quiz-option" style="background: white; padding: 15px; border-radius: 10px; cursor: pointer; border: 2px solid transparent; transition: all 0.3s ease;" onclick="selectQuizAnswer(1, 'peaceful', this)">
+                                            <strong>☮️ לפתור בעיות</strong> - אוהב/ת לעזור כשיש ויכוחים ולמצוא פתרונות
+                                        </div>
+                                        <div class="quiz-option" style="background: white; padding: 15px; border-radius: 10px; cursor: pointer; border: 2px solid transparent; transition: all 0.3s ease;" onclick="selectQuizAnswer(1, 'cheerful', this)">
+                                            <strong>😊 לשמח אחרים</strong> - אוהב/ת לספר בדיחות ולגרום לכולם לחייך
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="quiz-question" id="question2" style="display: none;">
+                                    <h5 style="color: #667eea; margin-bottom: 20px;">🌟 איך החברים שלכם הכי אוהבים אתכם?</h5>
+                                    <div style="display: grid; gap: 15px;">
+                                        <div class="quiz-option" style="background: white; padding: 15px; border-radius: 10px; cursor: pointer; border: 2px solid transparent; transition: all 0.3s ease;" onclick="selectQuizAnswer(2, 'creative', this)">
+                                            <strong>🎭 בגלל הדמיון שלי</strong> - תמיד יש לי רעיונות מגניבים למשחקים
+                                        </div>
+                                        <div class="quiz-option" style="background: white; padding: 15px; border-radius: 10px; cursor: pointer; border: 2px solid transparent; transition: all 0.3s ease;" onclick="selectQuizAnswer(2, 'helper', this)">
+                                            <strong>🤗 בגלל שאני אכפתי</strong> - תמיד דואג/ת לחברים ועוזר/ת כשצריך
+                                        </div>
+                                        <div class="quiz-option" style="background: white; padding: 15px; border-radius: 10px; cursor: pointer; border: 2px solid transparent; transition: all 0.3s ease;" onclick="selectQuizAnswer(2, 'leader', this)">
+                                            <strong>💪 בגלל שאני חזק/ה</strong> - תמיד מוכן/ה לקחת אחריות ולעזור לקבוצה
+                                        </div>
+                                        <div class="quiz-option" style="background: white; padding: 15px; border-radius: 10px; cursor: pointer; border: 2px solid transparent; transition: all 0.3s ease;" onclick="selectQuizAnswer(2, 'peaceful', this)">
+                                            <strong>🕊️ בגלל שאני שליו/ה</strong> - תמיד יודע/ת לשמור על שקט ולפתור ריבים
+                                        </div>
+                                        <div class="quiz-option" style="background: white; padding: 15px; border-radius: 10px; cursor: pointer; border: 2px solid transparent; transition: all 0.3s ease;" onclick="selectQuizAnswer(2, 'cheerful', this)">
+                                            <strong>🌈 בגלל שאני עליז/ה</strong> - תמיד יודע/ת איך להרים את מצב הרוח
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="quiz-question" id="question3" style="display: none;">
+                                    <h5 style="color: #667eea; margin-bottom: 20px;">🏫 במה תרצו לעזור הכי הרבה בכיתה?</h5>
+                                    <div style="display: grid; gap: 15px;">
+                                        <div class="quiz-option" style="background: white; padding: 15px; border-radius: 10px; cursor: pointer; border: 2px solid transparent; transition: all 0.3s ease;" onclick="selectQuizAnswer(3, 'creative', this)">
+                                            <strong>🎨 בפרויקטים יצירתיים</strong> - לעזור לכיתה להיות יפה ומעניינת
+                                        </div>
+                                        <div class="quiz-option" style="background: white; padding: 15px; border-radius: 10px; cursor: pointer; border: 2px solid transparent; transition: all 0.3s ease;" onclick="selectQuizAnswer(3, 'helper', this)">
+                                            <strong>🤝 לעזור לילדים חדשים</strong> - לוודא שכולם מרגישים בבית
+                                        </div>
+                                        <div class="quiz-option" style="background: white; padding: 15px; border-radius: 10px; cursor: pointer; border: 2px solid transparent; transition: all 0.3s ease;" onclick="selectQuizAnswer(3, 'leader', this)">
+                                            <strong>👥 לארגן את הכיתה</strong> - לעזור למורה ולוודא שהכל מסודר
+                                        </div>
+                                        <div class="quiz-option" style="background: white; padding: 15px; border-radius: 10px; cursor: pointer; border: 2px solid transparent; transition: all 0.3s ease;" onclick="selectQuizAnswer(3, 'peaceful', this)">
+                                            <strong>☮️ לשמור על שלום</strong> - לעזור כשיש ויכוחים או עצב
+                                        </div>
+                                        <div class="quiz-option" style="background: white; padding: 15px; border-radius: 10px; cursor: pointer; border: 2px solid transparent; transition: all 0.3s ease;" onclick="selectQuizAnswer(3, 'cheerful', this)">
+                                            <strong>🎉 לגרום לכולם להנות</strong> - לעזור שהכיתה תהיה מקום כיף
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="superpowerResult" style="display: none; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 30px; border-radius: 15px; text-align: center;">
+                            <div id="superpowerEmoji" style="font-size: 5rem; margin-bottom: 20px;"></div>
+                            <h4 id="superpowerTitle" style="font-size: 2rem; margin-bottom: 15px;"></h4>
+                            <p id="superpowerDescription" style="font-size: 1.2rem; line-height: 1.6; margin-bottom: 20px;"></p>
+                            <div id="superpowerBenefits" style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 10px;">
+                                <h5 style="margin-bottom: 10px;">איך זה יעזור לך בכיתה א':</h5>
+                                <p id="superpowerSchoolBenefit" style="margin: 0;"></p>
+                            </div>
+                            <button class="btn" onclick="resetSuperpowerQuiz()" style="margin-top: 20px; background: rgba(255,255,255,0.2); border: 2px solid white;">🔄 עשה שוב את המבחן</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Backpack Tab -->
+            <div id="backpack" class="tab-content">
+                <div class="activity-section">
+                    <h3>🎒 התרמיל הרגשי שלי</h3>
+                    <p>עכשיו נבנה יחד את התרמיל הרגשי שלנו!</p>
+                    
+                    <div class="game-container">
+                        <h4>❤️ איך אני מרגיש לגבי עלייה לכיתה א'?</h4>
+                        <p>בחרו את הרגשות שהכי מתארים אתכם (אפשר לבחור כמה!):</p>
+                        
+                        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin: 20px 0;">
+                            <div style="background: white; padding: 20px; border-radius: 10px; text-align: center; cursor: pointer; transition: all 0.3s ease; border: 2px solid transparent;" onclick="toggleGradeEmotion(this, 'מתרגש')">
+                                <div style="font-size: 3rem; margin-bottom: 10px;">🤩</div>
+                                <div>מתרגש/ת</div>
+                            </div>
+                            <div style="background: white; padding: 20px; border-radius: 10px; text-align: center; cursor: pointer; transition: all 0.3s ease; border: 2px solid transparent;" onclick="toggleGradeEmotion(this, 'מפחד')">
+                                <div style="font-size: 3rem; margin-bottom: 10px;">😰</div>
+                                <div>קצת מפחד/ת</div>
+                            </div>
+                            <div style="background: white; padding: 20px; border-radius: 10px; text-align: center; cursor: pointer; transition: all 0.3s ease; border: 2px solid transparent;" onclick="toggleGradeEmotion(this, 'שמח')">
+                                <div style="font-size: 3rem; margin-bottom: 10px;">😊</div>
+                                <div>שמח/ה</div>
+                            </div>
+                            <div style="background: white; padding: 20px; border-radius: 10px; text-align: center; cursor: pointer; transition: all 0.3s ease; border: 2px solid transparent;" onclick="toggleGradeEmotion(this, 'דואג')">
+                                <div style="font-size: 3rem; margin-bottom: 10px;">😟</div>
+                                <div>דואג/ת</div>
+                            </div>
+                            <div style="background: white; padding: 20px; border-radius: 10px; text-align: center; cursor: pointer; transition: all 0.3s ease; border: 2px solid transparent;" onclick="toggleGradeEmotion(this, 'סקרן')">
+                                <div style="font-size: 3rem; margin-bottom: 10px;">🤔</div>
+                                <div>סקרן/ה</div>
+                            </div>
+                            <div style="background: white; padding: 20px; border-radius: 10px; text-align: center; cursor: pointer; transition: all 0.3s ease; border: 2px solid transparent;" onclick="toggleGradeEmotion(this, 'גאה')">
+                                <div style="font-size: 3rem; margin-bottom: 10px;">😌</div>
+                                <div>גאה</div>
+                            </div>
+                            <div style="background: white; padding: 20px; border-radius: 10px; text-align: center; cursor: pointer; transition: all 0.3s ease; border: 2px solid transparent;" onclick="toggleGradeEmotion(this, 'עצוב')">
+                                <div style="font-size: 3rem; margin-bottom: 10px;">😢</div>
+                                <div>עצוב/ה</div>
+                            </div>
+                            <div style="background: white; padding: 20px; border-radius: 10px; text-align: center; cursor: pointer; transition: all 0.3s ease; border: 2px solid transparent;" onclick="toggleGradeEmotion(this, 'בטוח')">
+                                <div style="font-size: 3rem; margin-bottom: 10px;">💪</div>
+                                <div>בטוח/ה בעצמי</div>
+                            </div>
+                            <div style="background: white; padding: 20px; border-radius: 10px; text-align: center; cursor: pointer; transition: all 0.3s ease; border: 2px solid transparent;" onclick="toggleGradeEmotion(this, 'מבולבל')">
+                                <div style="font-size: 3rem; margin-bottom: 10px;">😕</div>
+                                <div>מבולבל/ת</div>
+                            </div>
+                            <div style="background: white; padding: 20px; border-radius: 10px; text-align: center; cursor: pointer; transition: all 0.3s ease; border: 2px solid transparent;" onclick="toggleGradeEmotion(this, 'נחוש')">
+                                <div style="font-size: 3rem; margin-bottom: 10px;">🔥</div>
+                                <div>נחוש/ה</div>
+                            </div>
+                            <div style="background: white; padding: 20px; border-radius: 10px; text-align: center; cursor: pointer; transition: all 0.3s ease; border: 2px solid transparent;" onclick="toggleGradeEmotion(this, 'לא בטוח')">
+                                <div style="font-size: 3rem; margin-bottom: 10px;">🤷</div>
+                                <div>לא בטוח/ה</div>
+                            </div>
+                            <div style="background: white; padding: 20px; border-radius: 10px; text-align: center; cursor: pointer; transition: all 0.3s ease; border: 2px solid transparent;" onclick="toggleGradeEmotion(this, 'אופטימי')">
+                                <div style="font-size: 3rem; margin-bottom: 10px;">🌟</div>
+                                <div>אופטימי/ת</div>
+                            </div>
+                        </div>
+                        
+                        <div style="margin-top: 20px; padding: 20px; background: #f0f8ff; border-radius: 10px;">
+                            <h5>🌈 הרגשות שלי לגבי כיתה א':</h5>
+                            <div id="selectedGradeEmotions">בחרו רגשות מלמעלה...</div>
+                            <div style="margin-top: 15px; font-size: 0.9rem; color: #666;">
+                                💡 <strong>זכרו:</strong> זה בסדר גמור להרגיש כמה רגשות ביחד! רוב הילדים מרגישים מתרגשים ומפחדים בו זמנית לפני כיתה א'.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="activity-section">
+                    <h3>💭 מה אני חושב על כיתה א'?</h3>
+                    <p style="margin-bottom: 20px; color: #666;">כתבו את המחשבות שלכם על בית הספר החדש:</p>
+                    
+                    <div class="game-container">
+                        <div style="margin-bottom: 20px;">
+                            <label style="font-weight: 600; color: #667eea; display: block; margin-bottom: 10px;">🤔 מה הכי מעניין אותי בכיתה א'?</label>
+                            <textarea id="excitingThoughts" class="input-field" placeholder="למשל: ללמוד לקרוא, לפגוש חברים חדשים, לשחק במגרש..." style="min-height: 80px;"></textarea>
+                        </div>
+                        
+                        <div style="margin-bottom: 20px;">
+                            <label style="font-weight: 600; color: #ff6b6b; display: block; margin-bottom: 10px;">😰 מה מדאיג אותי?</label>
+                            <textarea id="worriedThoughts" class="input-field" placeholder="למשל: להיפרד מאמא, לא למצוא חברים, שיהיה קשה..." style="min-height: 80px;"></textarea>
+                        </div>
+                        
+                        <div style="margin-bottom: 20px;">
+                            <label style="font-weight: 600; color: #4CAF50; display: block; margin-bottom: 10px;">🌟 מה אני הכי מצפה לו?</label>
+                            <textarea id="hopefulThoughts" class="input-field" placeholder="למשל: לקבל ציונים טובים, להיות במשחק הכדורגל, לכתוב סיפורים..." style="min-height: 80px;"></textarea>
+                        </div>
+                        
+                        <div style="text-align: center;">
+                            <button class="btn btn-secondary" onclick="saveThoughts()">💾 שמור את המחשבות שלי</button>
+                        </div>
+                        
+                        <div id="thoughtsSaved" style="margin-top: 20px; padding: 20px; background: #e8f5e8; border-radius: 10px; display: none;">
+                            <h5 style="color: #4CAF50;">✅ המחשבות שלך נשמרו בתרמיל!</h5>
+                            <p style="margin: 10px 0 0 0; color: #666;">עכשיו אפשר לעבור להמשיך לבנות את התרמיל הרגשי שלך.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="activity-section">
+                    <h3>⭐ במה אני טוב?</h3>
+                    <p style="margin-bottom: 20px; color: #666;">חשבו יחד על הדברים שאתם טובים בהם.</p>
+                    <div style="margin-bottom: 15px;">
+                        <input type="text" id="strengthInput" class="input-field" placeholder="למשל: אני טוב בציור, אני עוזר לאחרים...">
+                        <button class="btn" onclick="addStrength()">הוסף לתרמיל 🎒</button>
+                    </div>
+                    <div id="strengthsList" class="items-list"></div>
+                </div>
+
+                <div class="activity-section">
+                    <h3>🎯 מה מאתגר אותי?</h3>
+                    <p style="margin-bottom: 20px; color: #666;">זה בסדר שישנם דברים שמאתגרים אותנו!</p>
+                    <div style="margin-bottom: 15px;">
+                        <input type="text" id="challengeInput" class="input-field" placeholder="למשל: קשה לי להיפרד מאמא...">
+                        <button class="btn" onclick="addChallenge()">הוסף לתרמיל 🎒</button>
+                    </div>
+                    <div id="challengesList" class="items-list"></div>
+                </div>
+
+                <div class="activity-section">
+                    <h3>🤝 מה יכול לעזור לי?</h3>
+                    <p style="margin-bottom: 20px; color: #666;">כשמשהו קשה לנו, חשוב לדעת למי ולמה אנחנו יכולים לפנות לעזרה.</p>
+                    <div style="margin-bottom: 15px;">
+                        <input type="text" id="helpInput" class="input-field" placeholder="למשל: לחבק את הדובי שלי, לדבר עם המורה...">
+                        <button class="btn" onclick="addHelp()">הוסף לתרמיל 🎒</button>
+                    </div>
+                    <div id="helpsList" class="items-list"></div>
+                </div>
+
+                <div class="summary-section">
+                    <h3>🎒 התרמיל הרגשי שלי מוכן!</h3>
+                    <p style="margin-bottom: 20px;">הנה כל מה שלמדתם על עצמכם והכנתם לכיתה א':</p>
+                    
+                    <div class="summary-item">
+                        <h4>❤️ הרגשות שלי על כיתה א':</h4>
+                        <div id="summaryGradeEmotions">טרם נבחרו רגשות</div>
+                    </div>
+                    
+                    <div class="summary-item">
+                        <h4>💭 המחשבות שלי:</h4>
+                        <div id="summaryThoughts">טרם נשמרו מחשבות</div>
+                    </div>
+                    
+                    <div class="summary-item">
+                        <h4>⭐ החוזקות שלי:</h4>
+                        <div id="summaryStrengths">טרם נוספו חוזקות</div>
+                    </div>
+                    
+                    <div class="summary-item">
+                        <h4>🎯 האתגרים שלי:</h4>
+                        <div id="summaryChallenges">טרם נוספו אתגרים</div>
+                    </div>
+                    
+                    <div class="summary-item">
+                        <h4>🤝 מה שעוזר לי:</h4>
+                        <div id="summaryHelp">טרם נוספו כלי עזרה</div>
+                    </div>
+                    
+                    <div class="summary-item">
+                        <h4>🎈 הכלי הסודי שלי:</h4>
+                        <div>נשימת הבלון הקסומה - תמיד איתי!</div>
+                    </div>
+                    
+                    <div style="display: flex; gap: 15px; justify-content: center; margin-top: 20px;">
+                        <button class="print-button" style="background-color: #4CAF50;" onclick="saveAsPDF()">שמור את התרמיל שלי 💾</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- <script>
+        //let selectedMemoryCard = null;
+        //let memoryGameStarted = false;
+        //let selectedSequence = [];
+    </script> -->
+</body>
+</html>
