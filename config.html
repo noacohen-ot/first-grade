@@ -1,0 +1,217 @@
+<!-- config.html -->
+<!DOCTYPE html>
+<html dir="rtl" lang="he">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>הגדרות - הכנה לכיתה א'</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <style>
+        .password-container {
+            max-width: 400px;
+            margin: 100px auto;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .settings-container {
+            display: none;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .setting-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            margin: 10px 0;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            border-right: 4px solid #4CAF50;
+        }
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 34px;
+        }
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+        input:checked + .slider {
+            background-color: #4CAF50;
+        }
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px 5px;
+        }
+        .error-message {
+            color: #ff4757;
+            margin-top: 10px;
+            display: none;
+        }
+        h1 {
+            color: #4CAF50;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        input[type="password"] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Password Prompt -->
+        <div id="passwordContainer" class="password-container">
+            <h2>כניסה להגדרות</h2>
+            <p>אנא הזן סיסמה:</p>
+            <input type="password" id="passwordInput" placeholder="הזן סיסמה">
+            <div id="errorMessage" class="error-message">סיסמה שגויה, נסה שוב</div>
+            <button onclick="checkPassword()" class="button">כניסה</button>
+        </div>
+
+        <!-- Settings Content (initially hidden) -->
+        <div id="settingsContent" class="settings-container">
+            <h1>הגדרות תפריט</h1>
+            <p>בחרו אילו לשוניות תרצו להציג בתפריט הראשי:</p>
+            
+            <div id="tabsContainer">
+                <!-- Tabs will be added here by JavaScript -->
+            </div>
+            
+            <div style="text-align: center; margin-top: 30px;">
+                <button onclick="saveSettings()" class="button">שמור שינויים</button>
+                <button onclick="window.location.href='index.html'" class="button" style="background-color: #6c757d;">חזור לדף הבית</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/navigation.js"></script>
+
+    <script>
+        // Set your password here (in a real app, this should be hashed and stored securely)
+        const CORRECT_PASSWORD = "noa123"; // Change this to your desired password
+        
+        // Check password
+        function checkPassword() {
+            const password = document.getElementById('passwordInput').value;
+            const errorMessage = document.getElementById('errorMessage');
+            const passwordContainer = document.getElementById('passwordContainer');
+            const settingsContent = document.getElementById('settingsContent');
+            
+            if (password === CORRECT_PASSWORD) {
+                // Store session flag (expires when browser is closed)
+                sessionStorage.setItem('authenticated', 'true');
+                passwordContainer.style.display = 'none';
+                settingsContent.style.display = 'block';
+                loadSettings();
+            } else {
+                errorMessage.style.display = 'block';
+                document.getElementById('passwordInput').value = '';
+            }
+        }
+
+        // Allow Enter key to submit password
+        document.getElementById('passwordInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                checkPassword();
+            }
+        });
+
+        // Load saved settings or use defaults
+        function loadSettings() {
+            const tabs = JSON.parse(localStorage.getItem('tabSettings')) || defaultTabs;
+            const container = document.getElementById('tabsContainer');
+            container.innerHTML = '';
+            
+            tabs.forEach(tab => {
+                const setting = document.createElement('div');
+                setting.className = 'setting-item';
+                setting.innerHTML = `
+                    <span style="font-size: 1.2em;">${tab.icon} ${tab.name}</span>
+                    <label class="switch">
+                        <input type="checkbox" id="${tab.id}Checkbox" ${tab.visible ? 'checked' : ''}>
+                        <span class="slider"></span>
+                    </label>
+                `;
+                container.appendChild(setting);
+            });
+        }
+
+        // Save settings to localStorage
+        function saveSettings() {
+            const tabs = defaultTabs.map(tab => {
+                const checkbox = document.getElementById(`${tab.id}Checkbox`);
+                return {
+                    ...tab,
+                    visible: checkbox ? checkbox.checked : tab.visible
+                };
+            });
+            
+            localStorage.setItem('tabSettings', JSON.stringify(tabs));
+            alert('ההגדרות נשמרו בהצלחה!');
+        }
+
+        // Check authentication on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const isAuthenticated = sessionStorage.getItem('authenticated') === 'true';
+            const passwordContainer = document.getElementById('passwordContainer');
+            const settingsContent = document.getElementById('settingsContent');
+            
+            if (isAuthenticated) {
+                passwordContainer.style.display = 'none';
+                settingsContent.style.display = 'block';
+                loadSettings();
+            } else {
+                passwordContainer.style.display = 'block';
+                settingsContent.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
