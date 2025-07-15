@@ -1,6 +1,60 @@
         // Track items that have been added to sequence games
         const sequenceItemsUsed = new Set();
 
+        // Sandwich types configuration
+        const sandwichTypes = {
+            chocolate: {
+                name: 'שוקולד',
+                emoji: '🍫',
+                steps: [
+                    { emoji: '🍞', text: 'לוקחים פרוסה' },
+                    { emoji: '🍫', text: 'מורחים שוקולד' },
+                    { emoji: '🍞', text: 'פרוסה שנייה' },
+                    { emoji: '🥪', text: 'סנדוויץ\' מוכן!' }
+                ]
+            },
+            cottage: {
+                name: 'קוטג\'',
+                emoji: '🥛',
+                steps: [
+                    { emoji: '🍞', text: 'לוקחים פרוסה' },
+                    { emoji: '🥛', text: 'מורחים קוטג\'' },
+                    { emoji: '🍞', text: 'פרוסה שנייה' },
+                    { emoji: '🥪', text: 'סנדוויץ\' מוכן!' }
+                ]
+            },
+            cheese: {
+                name: 'גבינה צהובה',
+                emoji: '🧀',
+                steps: [
+                    { emoji: '🍞', text: 'לוקחים פרוסה' },
+                    { emoji: '🧀', text: 'שמים גבינה' },
+                    { emoji: '🍞', text: 'פרוסה שנייה' },
+                    { emoji: '🥪', text: 'סנדוויץ\' מוכן!' }
+                ]
+            },
+            tuna: {
+                name: 'טונה',
+                emoji: '🐟',
+                steps: [
+                    { emoji: '🍞', text: 'לוקחים פרוסה' },
+                    { emoji: '🐟', text: 'מורחים טונה' },
+                    { emoji: '🍞', text: 'פרוסה שנייה' },
+                    { emoji: '🥪', text: 'סנדוויץ\' מוכן!' }
+                ]
+            },
+            hummus: {
+                name: 'חומוס',
+                emoji: '🥣',
+                steps: [
+                    { emoji: '🍞', text: 'לוקחים פרוסה' },
+                    { emoji: '🥣', text: 'מורחים חומוס' },
+                    { emoji: '🍞', text: 'פרוסה שנייה' },
+                    { emoji: '🥪', text: 'סנדוויץ\' מוכן!' }
+                ]
+            }
+        };
+
         /**
          * Adds an item to a sequence game (sandwich or plant)
          * @param {HTMLElement} item - The clicked item element
@@ -194,56 +248,216 @@
             const result = document.getElementById(gameType + 'Result');
             
             let correctOrder = true;
-            let expectedCount = gameType === 'sandwich' ? 4 : 5;
+            let expectedSteps = [];
+            
+            if (gameType === 'sandwich') {
+                // Get the selected sandwich type
+                const selectedType = document.getElementById('sandwichType').value;
+                const sandwich = sandwichTypes[selectedType];
+                if (sandwich) {
+                    expectedSteps = sandwich.steps.map(step => step.text);
+                }
+            } else if (gameType === 'plant') {
+                expectedSteps = [
+                    'לוקחים עציץ',
+                    'מוציאים שתיל',
+                    'מניחים באדמה',
+                    'משקים במים',
+                    'פרח יפה!'
+                ];
+            }
             
             // Check if items are in the correct order
             items.forEach((item, index) => {
                 const itemText = item.querySelector('.item-text').textContent;
-                let expectedText = '';
-                
-                // Define expected text for each position based on game type
-                if (gameType === 'sandwich') {
-                    const sandwichSteps = [
-                        'לוקחים פרוסה',
-                        'מורחים שוקולד',
-                        'פרוסה שנייה',
-                        'סנדוויץ\' מוכן!'
-                    ];
-                    expectedText = sandwichSteps[index];
-                } else if (gameType === 'plant') {
-                    const plantSteps = [
-                        'לוקחים עציץ',
-                        'מוציאים שתיל',
-                        'מניחים באדמה',
-                        'משקים במים',
-                        'פרח יפה!'
-                    ];
-                    expectedText = plantSteps[index];
-                }
-                
-                if (itemText !== expectedText) {
+                if (index < expectedSteps.length && itemText !== expectedSteps[index]) {
                     correctOrder = false;
                 }
             });
             
             // Show appropriate message
-            if (items.length === expectedCount && correctOrder) {
+            if (items.length === expectedSteps.length && correctOrder) {
                 result.innerHTML = '🎉 מעולה! סידרתם נכון את השלבים!';
                 result.style.color = '#4CAF50';
-            } else if (items.length === expectedCount) {
+            } else if (items.length === expectedSteps.length) {
                 result.innerHTML = '😅 לא בדיוק... נסו שוב לסדר את השלבים בסדר הנכון';
                 result.style.color = '#ff4757';
                 
                 // Show the correct order as a hint
-                if (gameType === 'sandwich') {
-                    result.innerHTML += '<br><small>הסדר הנכון: לחם → חמאה → עגבנייה → חסה → גבינה</small>';
-                } else if (gameType === 'plant') {
-                    result.innerHTML += '<br><small>הסדר הנכון: עציץ → שתיל → אדמה → מים → פרח</small>';
-                }
+                result.innerHTML += '<br><small>הסדר הנכון: ' + expectedSteps.join(' ← ') + '</small>';
             } else {
-                result.innerHTML = `📝 בבקשה סדרו את כל ${expectedCount} השלבים בתיבה`;
+                result.innerHTML = `📝 בבקשה סדרו את כל ${expectedSteps.length} השלבים בתיבה`;
                 result.style.color = '#ffa726';
             }
+        }
+
+        // Update sandwich steps based on selected type
+        function updateSandwichSteps() {
+            const selectedType = document.getElementById('sandwichType').value;
+            const stepsContainer = document.getElementById('sandwichSteps');
+            const sandwichOrder = document.getElementById('sandwichOrder');
+            
+            // Clear existing steps
+            stepsContainer.innerHTML = '';
+            
+            // Clear the sandwich order zone
+            const existingItems = sandwichOrder.querySelectorAll('.clickable-item');
+            existingItems.forEach(item => item.remove());
+            
+            // Reset used items
+            sequenceItemsUsed.clear();
+            
+            // Get the steps for the selected sandwich type
+            const sandwich = sandwichTypes[selectedType];
+            if (sandwich) {
+                // Shuffle the steps for the game
+                const shuffledSteps = [...sandwich.steps].sort(() => Math.random() - 0.5);
+                
+                shuffledSteps.forEach((step, index) => {
+                    const stepDiv = document.createElement('div');
+                    stepDiv.className = 'clickable-item';
+                    stepDiv.id = `sandwich-step-${index}`;
+                    stepDiv.onclick = function() { addToSequence(this, 'sandwichOrder'); };
+                    stepDiv.innerHTML = `
+                        <div class="item-emoji">${step.emoji}</div>
+                        <div class="item-text">${step.text}</div>
+                    `;
+                    stepsContainer.appendChild(stepDiv);
+                });
+            }
+        }
+
+        // Initialize sandwich steps on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            updateSandwichSteps();
+        });
+
+        // Handle sandwich selection change in weekly planner
+        function handleSandwichChange(selectElement) {
+            const day = selectElement.dataset.day;
+            const customInput = document.querySelector(`.custom-sandwich-input[data-day="${day}"]`);
+            
+            if (selectElement.value === 'other') {
+                customInput.style.display = 'block';
+                customInput.focus();
+            } else {
+                customInput.style.display = 'none';
+                customInput.value = '';
+            }
+        }
+
+        // Export weekly plan to PDF
+        function printWeeklyPlan() {
+            const days = ['ראשון', 'שני', 'שלישי', 'רביעי', 'חמישי', 'שישי'];
+            const dayKeys = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday'];
+            
+            let planText = 'תכנון סנדוויצ\'ים לשבוע\n\n';
+            
+            dayKeys.forEach((dayKey, index) => {
+                const select = document.querySelector(`.weekly-sandwich-select[data-day="${dayKey}"]`);
+                const customInput = document.querySelector(`.custom-sandwich-input[data-day="${dayKey}"]`);
+                
+                let sandwichName = 'לא נבחר';
+                if (select.value === 'other' && customInput.value) {
+                    sandwichName = `🥪 ${customInput.value}`;
+                } else if (select.value && sandwichTypes[select.value]) {
+                    const sandwichType = sandwichTypes[select.value];
+                    sandwichName = `${sandwichType.emoji} ${sandwichType.name}`;
+                }
+                
+                planText += `${days[index]}: ${sandwichName}\n`;
+            });
+            
+            // Create a simple PDF using the browser's print functionality
+            const printWindow = window.open('', '_blank');
+            printWindow.document.write(`
+                <!DOCTYPE html>
+                <html dir="rtl" lang="he">
+                <head>
+                    <meta charset="UTF-8">
+                    <title>תכנון סנדוויצ'ים לשבוע</title>
+                    <style>
+                        body {
+                            font-family: Arial, sans-serif;
+                            padding: 20px;
+                            direction: rtl;
+                        }
+                        h1 {
+                            text-align: center;
+                            color: #4CAF50;
+                        }
+                        table {
+                            width: 100%;
+                            border-collapse: collapse;
+                            margin-top: 20px;
+                        }
+                        th, td {
+                            border: 1px solid #ddd;
+                            padding: 12px;
+                            text-align: right;
+                        }
+                        th {
+                            background-color: #4CAF50;
+                            color: white;
+                        }
+                        @media print {
+                            body { margin: 0; }
+                            @page {
+                                margin: 0.5cm;
+                                size: A4;
+                            }
+                        }
+                    </style>
+                </head>
+                <body>
+                    <div style="text-align: right; margin-bottom: 20px;">
+                        <img src="${window.location.protocol}//${window.location.host}${window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/'))}/assets/images/logo.jpg" alt="Logo" style="max-width: 120px; height: auto;">
+                    </div>
+                    <h1>תכנון סנדוויצ'ים לשבוע</h1>
+                    <table>
+                        <tr>
+                            <th>יום</th>
+                            <th>סוג סנדוויץ'</th>
+                        </tr>
+            `);
+            
+            dayKeys.forEach((dayKey, index) => {
+                const select = document.querySelector(`.weekly-sandwich-select[data-day="${dayKey}"]`);
+                const customInput = document.querySelector(`.custom-sandwich-input[data-day="${dayKey}"]`);
+                
+                let sandwichName = '-';
+                if (select.value === 'other' && customInput.value) {
+                    sandwichName = `🥪 ${customInput.value}`;
+                } else if (select.value && sandwichTypes[select.value]) {
+                    const sandwichType = sandwichTypes[select.value];
+                    sandwichName = `${sandwichType.emoji} ${sandwichType.name}`;
+                }
+                
+                printWindow.document.write(`
+                    <tr>
+                        <td>${days[index]}</td>
+                        <td>${sandwichName}</td>
+                    </tr>
+                `);
+            });
+            
+            printWindow.document.write(`
+                    </table>
+                    <p style="margin-top: 30px; text-align: center;">
+                        תאריך: ${new Date().toLocaleDateString('he-IL')}
+                    </p>
+                </body>
+                </html>
+            `);
+            
+            printWindow.document.close();
+            printWindow.focus();
+            
+            // Trigger print dialog
+            setTimeout(() => {
+                printWindow.print();
+                printWindow.close();
+            }, 250);
         }
 
         // Problem solving functions

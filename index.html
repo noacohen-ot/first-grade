@@ -331,25 +331,22 @@
                     
                     <div class="game-container">
                         <h4>🧩 סדר הפעולות - הכנת סנדוויץ'</h4>
+                        
+                        <div style="margin: 20px 0;">
+                            <label for="sandwichType" style="font-size: 1.1rem; margin-left: 10px;">בחרו סוג סנדוויץ':</label>
+                            <select id="sandwichType" onchange="updateSandwichSteps()" style="padding: 8px 15px; font-size: 1rem; border-radius: 5px; border: 2px solid #4CAF50; margin-right: 10px;">
+                                <option value="chocolate">🍫 שוקולד</option>
+                                <option value="cottage">🥛 קוטג'</option>
+                                <option value="cheese">🧀 גבינה צהובה</option>
+                                <option value="tuna">🐟 טונה</option>
+                                <option value="hummus">🥣 חומוס</option>
+                            </select>
+                        </div>
+                        
                         <p>לחצו על הפריטים לפי הסדר הנכון להכנת סנדוויץ':</p>
                         
                         <div id="sandwichSteps" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; margin: 20px 0;">
-                            <div class="clickable-item" onclick="addToSequence(this, 'sandwichOrder')">
-                                <div class="item-emoji">🥪</div>
-                                <div class="item-text">סנדוויץ' מוכן!</div>
-                            </div>
-                            <div class="clickable-item" onclick="addToSequence(this, 'sandwichOrder')">
-                                <div class="item-emoji">🍞</div>
-                                <div class="item-text">לוקחים פרוסה</div>
-                            </div>
-                            <div class="clickable-item" onclick="addToSequence(this, 'sandwichOrder')">
-                                <div class="item-emoji">🍞</div>
-                                <div class="item-text">פרוסה שנייה</div>
-                            </div>
-                            <div class="clickable-item" onclick="addToSequence(this, 'sandwichOrder')">
-                                <div class="item-emoji">🍫</div>
-                                <div class="item-text">מורחים שוקולד</div>
-                            </div>
+                            <!-- Steps will be dynamically generated based on sandwich type -->
                         </div>
                         
                         <div class="sorting-zone" id="sandwichOrder" style="min-height: 80px; border: 2px dashed #4CAF50; border-radius: 10px; padding: 15px; margin: 20px 0; background-color: #f8fff8;">
@@ -364,6 +361,118 @@
                         </div>
                         
                         <div id="sandwichResult" style="margin-top: 20px; font-size: 1.2rem; font-weight: bold; text-align: center;"></div>
+                    </div>
+                </div>
+
+                <div class="activity-section">
+                    <h3>📅 תכנון סנדוויצ'ים לשבוע</h3>
+                    <p>בואו נתכנן יחד מה נכין כל יום בשבוע!</p>
+                    
+                    <div class="game-container">
+                        <table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
+                            <thead>
+                                <tr style="background-color: #4CAF50; color: white;">
+                                    <th style="padding: 12px; border: 1px solid #ddd;">יום</th>
+                                    <th style="padding: 12px; border: 1px solid #ddd;">סוג סנדוויץ'</th>
+                                </tr>
+                            </thead>
+                            <tbody id="weeklyPlannerBody">
+                                <tr>
+                                    <td style="padding: 10px; border: 1px solid #ddd; font-weight: bold;">ראשון</td>
+                                    <td style="padding: 10px; border: 1px solid #ddd;">
+                                        <select class="weekly-sandwich-select" data-day="sunday" onchange="handleSandwichChange(this)" style="width: 100%; padding: 5px;">
+                                            <option value="">בחרו...</option>
+                                            <option value="chocolate">🍫 שוקולד</option>
+                                            <option value="cottage">🥛 קוטג'</option>
+                                            <option value="cheese">🧀 גבינה צהובה</option>
+                                            <option value="tuna">🐟 טונה</option>
+                                            <option value="hummus">🥣 חומוס</option>
+                                            <option value="other">🥪 אחר...</option>
+                                        </select>
+                                        <input type="text" class="custom-sandwich-input" data-day="sunday" placeholder="איזה סנדוויץ'?" style="width: 100%; padding: 5px; margin-top: 5px; display: none;">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 10px; border: 1px solid #ddd; font-weight: bold;">שני</td>
+                                    <td style="padding: 10px; border: 1px solid #ddd;">
+                                        <select class="weekly-sandwich-select" data-day="monday" onchange="handleSandwichChange(this)" style="width: 100%; padding: 5px;">
+                                            <option value="">בחרו...</option>
+                                            <option value="chocolate">🍫 שוקולד</option>
+                                            <option value="cottage">🥛 קוטג'</option>
+                                            <option value="cheese">🧀 גבינה צהובה</option>
+                                            <option value="tuna">🐟 טונה</option>
+                                            <option value="hummus">🥣 חומוס</option>
+                                            <option value="other">🥪 אחר...</option>
+                                        </select>
+                                        <input type="text" class="custom-sandwich-input" data-day="monday" placeholder="איזה סנדוויץ'?" style="width: 100%; padding: 5px; margin-top: 5px; display: none;">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 10px; border: 1px solid #ddd; font-weight: bold;">שלישי</td>
+                                    <td style="padding: 10px; border: 1px solid #ddd;">
+                                        <select class="weekly-sandwich-select" data-day="tuesday" onchange="handleSandwichChange(this)" style="width: 100%; padding: 5px;">
+                                            <option value="">בחרו...</option>
+                                            <option value="chocolate">🍫 שוקולד</option>
+                                            <option value="cottage">🥛 קוטג'</option>
+                                            <option value="cheese">🧀 גבינה צהובה</option>
+                                            <option value="tuna">🐟 טונה</option>
+                                            <option value="hummus">🥣 חומוס</option>
+                                            <option value="other">🥪 אחר...</option>
+                                        </select>
+                                        <input type="text" class="custom-sandwich-input" data-day="tuesday" placeholder="איזה סנדוויץ'?" style="width: 100%; padding: 5px; margin-top: 5px; display: none;">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 10px; border: 1px solid #ddd; font-weight: bold;">רביעי</td>
+                                    <td style="padding: 10px; border: 1px solid #ddd;">
+                                        <select class="weekly-sandwich-select" data-day="wednesday" onchange="handleSandwichChange(this)" style="width: 100%; padding: 5px;">
+                                            <option value="">בחרו...</option>
+                                            <option value="chocolate">🍫 שוקולד</option>
+                                            <option value="cottage">🥛 קוטג'</option>
+                                            <option value="cheese">🧀 גבינה צהובה</option>
+                                            <option value="tuna">🐟 טונה</option>
+                                            <option value="hummus">🥣 חומוס</option>
+                                            <option value="other">🥪 אחר...</option>
+                                        </select>
+                                        <input type="text" class="custom-sandwich-input" data-day="wednesday" placeholder="איזה סנדוויץ'?" style="width: 100%; padding: 5px; margin-top: 5px; display: none;">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 10px; border: 1px solid #ddd; font-weight: bold;">חמישי</td>
+                                    <td style="padding: 10px; border: 1px solid #ddd;">
+                                        <select class="weekly-sandwich-select" data-day="thursday" onchange="handleSandwichChange(this)" style="width: 100%; padding: 5px;">
+                                            <option value="">בחרו...</option>
+                                            <option value="chocolate">🍫 שוקולד</option>
+                                            <option value="cottage">🥛 קוטג'</option>
+                                            <option value="cheese">🧀 גבינה צהובה</option>
+                                            <option value="tuna">🐟 טונה</option>
+                                            <option value="hummus">🥣 חומוס</option>
+                                            <option value="other">🥪 אחר...</option>
+                                        </select>
+                                        <input type="text" class="custom-sandwich-input" data-day="thursday" placeholder="איזה סנדוויץ'?" style="width: 100%; padding: 5px; margin-top: 5px; display: none;">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 10px; border: 1px solid #ddd; font-weight: bold;">שישי</td>
+                                    <td style="padding: 10px; border: 1px solid #ddd;">
+                                        <select class="weekly-sandwich-select" data-day="friday" onchange="handleSandwichChange(this)" style="width: 100%; padding: 5px;">
+                                            <option value="">בחרו...</option>
+                                            <option value="chocolate">🍫 שוקולד</option>
+                                            <option value="cottage">🥛 קוטג'</option>
+                                            <option value="cheese">🧀 גבינה צהובה</option>
+                                            <option value="tuna">🐟 טונה</option>
+                                            <option value="hummus">🥣 חומוס</option>
+                                            <option value="other">🥪 אחר...</option>
+                                        </select>
+                                        <input type="text" class="custom-sandwich-input" data-day="friday" placeholder="איזה סנדוויץ'?" style="width: 100%; padding: 5px; margin-top: 5px; display: none;">
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        
+                        <div style="text-align: center; margin-top: 20px;">
+                            <button class="btn btn-primary" onclick="printWeeklyPlan()">🖨️ הדפס</button>
+                        </div>
                     </div>
                 </div>
 
