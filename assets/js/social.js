@@ -296,6 +296,12 @@
                 title: 'מקרין/ת השמחה',
                 description: 'יש לך כוח להאיר את היום של כולם! אתה יודע איך לגרום לאנשים לחייך ולהרגיש טוב.',
                 schoolBenefit: 'בכיתה תהיה מקור האנרגיה החיובית - תעזור לכולם להנות מהלמידה, תרים מצב רוח בימים קשים ותגרום לכיתה להיות מקום כיף.'
+            },
+            learner: {
+                emoji: '📚',
+                title: 'סופג/ת הידע',
+                description: 'יש לך סקרנות עצומה ואהבה ללמידה! אתה נהנה לגלות דברים חדשים ולהבין איך העולם עובד.',
+                schoolBenefit: 'בכיתה תהיה התלמיד הסקרן - תשאל שאלות מעניינות, תעזור לאחרים להבין דברים חדשים ותהפוך את הלמידה להרפתקה מרתקת.'
             }
         };
 
@@ -350,10 +356,21 @@
             const quizDiv = document.getElementById('superpowerQuiz');
             const superpower = superpowers[result];
             
-            document.getElementById('superpowerEmoji').textContent = superpower.emoji;
-            document.getElementById('superpowerTitle').textContent = superpower.title;
-            document.getElementById('superpowerDescription').textContent = superpower.description;
-            document.getElementById('superpowerSchoolBenefit').textContent = superpower.schoolBenefit;
+            // Safety check in case result is not found
+            if (!superpower) {
+                console.error('Superpower not found for result:', result);
+                // Default to helper if result is invalid
+                const defaultSuperpower = superpowers['helper'];
+                document.getElementById('superpowerEmoji').textContent = defaultSuperpower.emoji;
+                document.getElementById('superpowerTitle').textContent = defaultSuperpower.title;
+                document.getElementById('superpowerDescription').textContent = defaultSuperpower.description;
+                document.getElementById('superpowerSchoolBenefit').textContent = defaultSuperpower.schoolBenefit;
+            } else {
+                document.getElementById('superpowerEmoji').textContent = superpower.emoji;
+                document.getElementById('superpowerTitle').textContent = superpower.title;
+                document.getElementById('superpowerDescription').textContent = superpower.description;
+                document.getElementById('superpowerSchoolBenefit').textContent = superpower.schoolBenefit;
+            }
             
             quizDiv.style.display = 'none';
             resultDiv.style.display = 'block';

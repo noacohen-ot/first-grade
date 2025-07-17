@@ -556,6 +556,31 @@
                                 <div style="font-size: 3rem; text-align: center; margin-bottom: 10px;">😴</div>
                                 <div style="text-align: center; font-weight: 600;">משעמם ואין מה לעשות</div>
                             </div>
+                            
+                            <div style="background: linear-gradient(135deg, #ff9800, #f57c00); color: white; padding: 25px; border-radius: 15px; cursor: pointer; transition: all 0.3s ease;" onclick="showProblem('lateBus')">
+                                <div style="font-size: 3rem; text-align: center; margin-bottom: 10px;">🚌</div>
+                                <div style="text-align: center; font-weight: 600;">איחרתי את ההסעה</div>
+                            </div>
+                            
+                            <div style="background: linear-gradient(135deg, #e91e63, #c2185b); color: white; padding: 25px; border-radius: 15px; cursor: pointer; transition: all 0.3s ease;" onclick="showProblem('bulliedBus')">
+                                <div style="font-size: 3rem; text-align: center; margin-bottom: 10px;">😢</div>
+                                <div style="text-align: center; font-weight: 600;">הציקו לי בהסעה</div>
+                            </div>
+                            
+                            <div style="background: linear-gradient(135deg, #009688, #00796b); color: white; padding: 25px; border-radius: 15px; cursor: pointer; transition: all 0.3s ease;" onclick="showProblem('dontUnderstand')">
+                                <div style="font-size: 3rem; text-align: center; margin-bottom: 10px;">❓</div>
+                                <div style="text-align: center; font-weight: 600;">לא הבנתי מה המורה אמרה</div>
+                            </div>
+                            
+                            <div style="background: linear-gradient(135deg, #607d8b, #455a64); color: white; padding: 25px; border-radius: 15px; cursor: pointer; transition: all 0.3s ease;" onclick="showProblem('aloneRecess')">
+                                <div style="font-size: 3rem; text-align: center; margin-bottom: 10px;">😔</div>
+                                <div style="text-align: center; font-weight: 600;">נשארתי לבד בהפסקה</div>
+                            </div>
+                            
+                            <div style="background: linear-gradient(135deg, #795548, #5d4037); color: white; padding: 25px; border-radius: 15px; cursor: pointer; transition: all 0.3s ease;" onclick="showProblem('hungrySchool')">
+                                <div style="font-size: 3rem; text-align: center; margin-bottom: 10px;">🍎</div>
+                                <div style="text-align: center; font-weight: 600;">אני רעב ועדיין לא הפסקת אוכל</div>
+                            </div>
                         </div>
                         
                         <div id="problemDisplay" style="display: none; margin-top: 30px; padding: 25px; background: #f0f8ff; border-radius: 15px;">
@@ -621,6 +646,10 @@
                             <div style="background: white; padding: 20px; border-radius: 10px; text-align: center; cursor: pointer; transition: all 0.3s ease; border: 2px solid transparent;" onclick="selectEmotion(this, 'מבולבל')">
                                 <div style="font-size: 3rem; margin-bottom: 10px;">😕</div>
                                 <div>מבולבל/מבולבלת</div>
+                            </div>
+                            <div style="background: white; padding: 20px; border-radius: 10px; text-align: center; cursor: pointer; transition: all 0.3s ease; border: 2px solid transparent;" onclick="selectEmotion(this, 'מתבייש')">
+                                <div style="font-size: 3rem; margin-bottom: 10px;">😳</div>
+                                <div>מתבייש/ת</div>
                             </div>
                         </div>
                         
@@ -724,6 +753,12 @@
                                 <div style="font-size: 2.5rem; margin-bottom: 10px;">🎵</div>
                                 <h5>שיר או מוזיקה</h5>
                                 <p style="font-size: 0.9rem;">שומע שיר שאני אוהב</p>
+                            </div>
+                            
+                            <div style="background: #e0f2f1; padding: 20px; border-radius: 10px; text-align: center;">
+                                <div style="font-size: 2.5rem; margin-bottom: 10px;">🥤</div>
+                                <h5>שתייה מהבקבוק שלי</h5>
+                                <p style="font-size: 0.9rem;">שותה מים בלגימות קטנות</p>
                             </div>
                         </div>
                     </div>
@@ -867,6 +902,9 @@
                                         <div class="quiz-option" style="background: white; padding: 15px; border-radius: 10px; cursor: pointer; border: 2px solid transparent; transition: all 0.3s ease;" onclick="selectQuizAnswer(1, 'cheerful', this)">
                                             <strong>😊 לשמח אחרים</strong> - אוהב/ת לספר בדיחות ולגרום לכולם לחייך
                                         </div>
+                                        <div class="quiz-option" style="background: white; padding: 15px; border-radius: 10px; cursor: pointer; border: 2px solid transparent; transition: all 0.3s ease;" onclick="selectQuizAnswer(1, 'learner', this)">
+                                            <strong>📚 ללמוד דברים חדשים</strong> - נהנה לגלות עובדות מעניינות ולהבין איך דברים עובדים
+                                        </div>
                                     </div>
                                 </div>
 
@@ -888,6 +926,9 @@
                                         <div class="quiz-option" style="background: white; padding: 15px; border-radius: 10px; cursor: pointer; border: 2px solid transparent; transition: all 0.3s ease;" onclick="selectQuizAnswer(2, 'cheerful', this)">
                                             <strong>🌈 בגלל שאני עליז/ה</strong> - תמיד יודע/ת איך להרים את מצב הרוח
                                         </div>
+                                        <div class="quiz-option" style="background: white; padding: 15px; border-radius: 10px; cursor: pointer; border: 2px solid transparent; transition: all 0.3s ease;" onclick="selectQuizAnswer(2, 'learner', this)">
+                                            <strong>🧠 בגלל שאני סקרן/ית</strong> - תמיד שואל/ת שאלות ומשתף/ת דברים מעניינים
+                                        </div>
                                     </div>
                                 </div>
 
@@ -908,6 +949,9 @@
                                         </div>
                                         <div class="quiz-option" style="background: white; padding: 15px; border-radius: 10px; cursor: pointer; border: 2px solid transparent; transition: all 0.3s ease;" onclick="selectQuizAnswer(3, 'cheerful', this)">
                                             <strong>🎉 לגרום לכולם להנות</strong> - לעזור שהכיתה תהיה מקום כיף
+                                        </div>
+                                        <div class="quiz-option" style="background: white; padding: 15px; border-radius: 10px; cursor: pointer; border: 2px solid transparent; transition: all 0.3s ease;" onclick="selectQuizAnswer(3, 'learner', this)">
+                                            <strong>📖 לעזור בלמידה</strong> - לשתף מה שלמדתי ולעזור לאחרים להבין
                                         </div>
                                     </div>
                                 </div>
@@ -1016,7 +1060,7 @@
                         
                         <div style="margin-bottom: 20px;">
                             <label style="font-weight: 600; color: #4CAF50; display: block; margin-bottom: 10px;">🌟 מה אני הכי מצפה לו?</label>
-                            <textarea id="hopefulThoughts" class="input-field" placeholder="למשל: לקבל ציונים טובים, להיות במשחק הכדורגל, לכתוב סיפורים..." style="min-height: 80px;"></textarea>
+                            <textarea id="hopefulThoughts" class="input-field" placeholder="למשל: ללמוד, להיות במשחק כדורגל, לכתוב סיפורים..." style="min-height: 80px;"></textarea>
                         </div>
                         
                         <div style="text-align: center;">
