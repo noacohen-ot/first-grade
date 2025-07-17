@@ -6,5 +6,8 @@
     { "id": "emotions", "name": "ויסות רגשי", "icon": "💚", "visible": true },
     { "id": "social", "name": "מיומנויות חברתיות", "icon": "🤝", "visible": true },
     { "id": "backpack", "name": "התרמיל הרגשי", "icon": "🎒", "visible": true }
+  ],
+  "passcodes": [
+    "FIGS-2025"
   ]
 }

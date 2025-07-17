@@ -6,6 +6,7 @@
     <title>הכנה לכיתה א' - נעה כהן מרפאה בעיסוק</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="assets/js/auth.js"></script>
     <script src="assets/js/misc.js"></script>
     <script src="assets/js/emotional.js"></script>
     <script src="assets/js/backpack.js"></script>
@@ -16,7 +17,43 @@
     <script src="assets/js/navigation.js"></script>
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
-<body>
+<body onload="initAuth()">
+    <!-- Authentication Modal -->
+    <div id="authModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 10000; align-items: center; justify-content: center;">
+        <div style="background: white; padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); max-width: 400px; width: 90%; text-align: center;">
+            <h2 style="color: #667eea; margin-bottom: 20px;">🔐 נא להזין קוד גישה</h2>
+            <p style="color: #666; margin-bottom: 20px;">האפליקציה דורשת קוד גישה להמשך</p>
+            
+            <div style="position: relative; margin-bottom: 15px;">
+                <input type="password" id="passcodeInput" placeholder="הזן קוד גישה" 
+                       style="width: 100%; padding: 15px; padding-left: 50px; font-size: 1.1rem; border: 2px solid #ddd; border-radius: 10px; text-align: center; direction: ltr;">
+                <button type="button" 
+                        onmousedown="showPassword()" 
+                        onmouseup="hidePassword()" 
+                        onmouseleave="hidePassword()"
+                        ontouchstart="showPassword()"
+                        ontouchend="hidePassword()"
+                        style="position: absolute; left: 10px; top: 50%; transform: translateY(-50%); background: none; border: none; font-size: 1.3rem; cursor: pointer; padding: 5px; user-select: none;">
+                    <span id="togglePasswordIcon">👁️‍🗨️</span>
+                </button>
+            </div>
+            
+            <div style="margin-bottom: 20px; text-align: right;">
+                <label style="cursor: pointer; display: inline-flex; align-items: center; gap: 8px;">
+                    <input type="checkbox" id="savePasscode" style="width: 18px; height: 18px; cursor: pointer;">
+                    <span style="color: #666;">שמור קוד גישה במכשיר זה</span>
+                </label>
+            </div>
+            
+            <button onclick="submitPasscode()" 
+                    style="background: linear-gradient(45deg, #667eea, #764ba2); color: white; border: none; padding: 15px 40px; font-size: 1.1rem; border-radius: 10px; cursor: pointer; transition: all 0.3s;">
+                כניסה
+            </button>
+            
+            <div id="authError" style="display: none; color: #ff4757; margin-top: 15px; font-weight: 500;"></div>
+        </div>
+    </div>
+
     <div class="container">
         <div class="header">
             <div class="logo">

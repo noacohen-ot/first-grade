@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Auth</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .success { color: #4CAF50; }
+        .error { color: #ff4757; }
+        .info { color: #666; }
+        code { background: #f5f5f5; padding: 2px 5px; border-radius: 3px; }
+    </style>
+</head>
+<body>
+    <h2>Test Authentication</h2>
+    
+    <div id="passcodeList">
+        <p>Loading passcodes from config.json...</p>
+    </div>
+    
+    <button onclick="localStorage.clear(); alert('LocalStorage cleared!')">Clear LocalStorage</button>
+    <button onclick="location.href='index.html'">Go to App</button>
+    
+    <script>
+        // Load and display passcodes
+        async function loadAndDisplayPasscodes() {
+            const listDiv = document.getElementById('passcodeList');
+            
+            try {
+                const response = await fetch('config.json');
+                const config = await response.json();
+                const passcodes = config.passcodes || [];
+                
+                if (passcodes.length > 0) {
+                    listDiv.innerHTML = `
+                        <p class="success">Valid passcodes from config.json:</p>
+                        <ul>
+                            ${passcodes.map(code => `<li><code>${code}</code></li>`).join('')}
+                        </ul>
+                        <p class="info">
+                            <strong>Note:</strong> To add or remove passcodes, edit the <code>passcodes</code> array in <code>config.json</code>
+                        </p>
+                    `;
+                } else {
+                    listDiv.innerHTML = '<p class="error">No passcodes found in config.json</p>';
+                }
+            } catch (error) {
+                console.error('Failed to load config.json:', error);
+                listDiv.innerHTML = `
+                    <p class="error">Failed to load config.json due to CORS restrictions</p>
+                    <p class="error"><strong>Master Passcode Available:</strong> <code>NOACOHEN</code></p>
+                    <p class="info">
+                        This master passcode only works when config.json cannot be loaded (e.g., when opening the file directly).
+                        It will NOT work if the app is served via HTTP/HTTPS and config.json loads successfully.
+                    </p>
+                `;
+            }
+        }
+        
+        // Load on page load
+        loadAndDisplayPasscodes();
+    </script>
+</body>
+</html>
