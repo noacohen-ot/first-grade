@@ -106,25 +106,85 @@
             }
         }
         
+        // Update breathing instructions based on selected type
+        function updateBreathingInstructions() {
+            const breathingType = document.querySelector('input[name="breathingType"]:checked').value;
+            const instructionsDiv = document.getElementById('breathingInstructions');
+            
+            if (breathingType === 'balloon') {
+                instructionsDiv.innerHTML = `
+                    <p><strong>איך עושים נשימת בלון?</strong></p>
+                    <p>1. שימו יד על הבטן</p>
+                    <p>2. הכניסו אוויר לאט דרך האף - הבטן מתנפחת כמו בלון 🎈</p>
+                    <p>3. עצרו רגע</p>
+                    <p>4. הוציאו אוויר לאט דרך הפה - הבלון מתרוקן 💨</p>
+                `;
+            } else {
+                instructionsDiv.innerHTML = `
+                    <p><strong>איך עושים נשימת פרח ונר?</strong></p>
+                    <p>1. דמיינו שאתם מחזיקים פרח יפה 🌸</p>
+                    <p>2. הריחו את הפרח - שאפו לאט ועמוק דרך האף</p>
+                    <p>3. עכשיו דמיינו נר דולק 🕯️</p>
+                    <p>4. כבו את הנר - נשפו לאט ובעדינות דרך הפה</p>
+                `;
+            }
+        }
+
         // Breathing animation
         function startBreathing() {
             const balloon = document.getElementById('schoolBalloon');
             const balloonText = document.getElementById('schoolBalloonText');
+            const breathingType = document.querySelector('input[name="breathingType"]:checked').value;
             let isInhaling = true;
             
             stopBreathing();
             
+            // Disable breathing type selection
+            const radioButtons = document.querySelectorAll('input[name="breathingType"]');
+            radioButtons.forEach(radio => {
+                radio.disabled = true;
+            });
+            
+            // Add visual feedback that options are disabled
+            const labels = document.querySelectorAll('.breathing-option');
+            labels.forEach(label => {
+                label.style.opacity = '0.6';
+                label.style.cursor = 'not-allowed';
+            });
+            
             balloonText.textContent = 'התכוננו...';
 
             breathingInterval = setInterval(() => {
-                if (isInhaling) {
-                    balloon.style.transform = 'scale(1.3)';
-                    balloon.style.background = 'linear-gradient(45deg, #667eea, #764ba2)';
-                    balloonText.textContent = 'שאפו לאט דרך האף... 🌬️';
+                if (breathingType === 'balloon') {
+                    if (isInhaling) {
+                        balloon.style.transform = 'scale(1.3)';
+                        balloon.style.borderRadius = '50%';
+                        balloon.style.background = 'linear-gradient(45deg, #667eea, #764ba2)';
+                        balloonText.textContent = 'שאפו לאט דרך האף... 🌬️';
+                        balloonText.style.fontSize = '1rem';
+                    } else {
+                        balloon.style.transform = 'scale(1)';
+                        balloon.style.borderRadius = '50%';
+                        balloon.style.background = 'linear-gradient(45deg, #ff6b6b, #ffa726)';
+                        balloonText.textContent = 'נשפו לאט דרך הפה... 💨';
+                        balloonText.style.fontSize = '1rem';
+                    }
                 } else {
-                    balloon.style.transform = 'scale(1)';
-                    balloon.style.background = 'linear-gradient(45deg, #ff6b6b, #ffa726)';
-                    balloonText.textContent = 'נשפו לאט דרך הפה... 💨';
+                    if (isInhaling) {
+                        balloon.style.transform = 'scale(1.3)';
+                        balloon.style.borderRadius = '35% 65% 65% 35% / 35% 65% 35% 65%';
+                        balloon.style.background = 'radial-gradient(circle at center, #ff99cc 30%, #ff66c4 60%, #ff1493 100%)';
+                        balloon.style.boxShadow = '0 0 30px rgba(255, 102, 196, 0.5), inset 0 0 20px rgba(255, 255, 255, 0.3)';
+                        balloonText.innerHTML = '🌸';
+                        balloonText.style.fontSize = '3rem';
+                    } else {
+                        balloon.style.transform = 'scale(1)';
+                        balloon.style.borderRadius = '50%';
+                        balloon.style.background = 'linear-gradient(45deg, #ffa500, #ff6347)';
+                        balloon.style.boxShadow = '0 10px 30px rgba(0,0,0,0.2)';
+                        balloonText.innerHTML = '🕯️';
+                        balloonText.style.fontSize = '4rem';
+                    }
                 }
                 isInhaling = !isInhaling;
             }, 4000);
@@ -139,8 +199,24 @@
             const balloon = document.getElementById('schoolBalloon');
             const balloonText = document.getElementById('schoolBalloonText');
             balloon.style.transform = 'scale(1)';
+            balloon.style.borderRadius = '50%';
             balloon.style.background = 'linear-gradient(45deg, #ff6b6b, #ffa726)';
-            balloonText.textContent = 'נשימה רגועה 😌';
+            balloon.style.boxShadow = '0 10px 30px rgba(0,0,0,0.2)';
+            balloonText.innerHTML = 'נשימה רגועה 😌';
+            balloonText.style.fontSize = '1rem';
+            
+            // Re-enable breathing type selection
+            const radioButtons = document.querySelectorAll('input[name="breathingType"]');
+            radioButtons.forEach(radio => {
+                radio.disabled = false;
+            });
+            
+            // Restore visual feedback
+            const labels = document.querySelectorAll('.breathing-option');
+            labels.forEach(label => {
+                label.style.opacity = '1';
+                label.style.cursor = 'pointer';
+            });
         }
 
         // School day ordering game

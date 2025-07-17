@@ -226,11 +226,31 @@
                 </div>
 
                 <div class="activity-section">
-                    <h3>🎈 נשימת הבלון הקסומה</h3>
-                    <p>בואו נלמד יחד נשימה שתעזור לנו להרגיש רגועים!</p>
+                    <h3>🎈 תרגילי נשימה להרגעה</h3>
+                    <p>בואו נלמד יחד נשימות שיעזרו לנו להרגיש רגועים!</p>
                     
                     <div class="game-container" style="text-align: center;">
-                        <div style="background: #e3f2fd; padding: 20px; border-radius: 10px; margin-bottom: 20px;">
+                        <div style="background: #f0f8ff; padding: 15px; border-radius: 10px; margin-bottom: 20px;">
+                            <h5>בחרו את סוג הנשימה:</h5>
+                            <div style="display: flex; gap: 15px; justify-content: center; margin-top: 10px;">
+                                <label class="breathing-option" style="cursor: pointer; padding: 10px 20px; border-radius: 10px; background: white; border: 2px solid #667eea; transition: all 0.3s;">
+                                    <input type="radio" name="breathingType" value="balloon" checked onchange="updateBreathingInstructions()" style="margin-left: 5px;">
+                                    🎈 נשימת בלון
+                                </label>
+                                <label class="breathing-option" style="cursor: pointer; padding: 10px 20px; border-radius: 10px; background: white; border: 2px solid #667eea; transition: all 0.3s;">
+                                    <input type="radio" name="breathingType" value="flower" onchange="updateBreathingInstructions()" style="margin-left: 5px;">
+                                    🌸 נשימת פרח ונר
+                                </label>
+                            </div>
+                            <style>
+                                .breathing-option:has(input:checked) {
+                                    background: linear-gradient(45deg, #667eea, #764ba2) !important;
+                                    color: white !important;
+                                }
+                            </style>
+                        </div>
+                        
+                        <div id="breathingInstructions" style="background: #e3f2fd; padding: 20px; border-radius: 10px; margin-bottom: 20px;">
                             <p><strong>איך עושים נשימת בלון?</strong></p>
                             <p>1. שימו יד על הבטן</p>
                             <p>2. הכניסו אוויר לאט דרך האף - הבטן מתנפחת כמו בלון 🎈</p>
@@ -243,7 +263,7 @@
                         </div>
                         
                         <div>
-                            <button class="btn btn-secondary" onclick="startBreathing()">🌟 התחל נשימת בלון</button>
+                            <button class="btn btn-secondary" onclick="startBreathing()">🌟 התחל תרגיל נשימה</button>
                             <button class="btn" onclick="stopBreathing()">⏹️ עצור</button>
                         </div>
                     </div>
