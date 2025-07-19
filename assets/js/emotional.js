@@ -46,6 +46,10 @@
             if (!selectedPhrases.includes(phrase)) {
                 selectedPhrases.push(phrase);
                 updatePhrasesList();
+                // Auto-save
+                if (typeof saveCalmingPhrases !== 'undefined') {
+                    saveCalmingPhrases();
+                }
             }
             
             // Show success message
@@ -64,6 +68,10 @@
                 selectedPhrases.push(phrase);
                 input.value = '';
                 updatePhrasesList();
+                // Auto-save
+                if (typeof saveCalmingPhrases !== 'undefined') {
+                    saveCalmingPhrases();
+                }
             }
         }
 
@@ -102,5 +110,9 @@
         function removePhrase(index) {
             selectedPhrases.splice(index, 1);
             updatePhrasesList();
+            // Auto-save
+            if (typeof saveCalmingPhrases !== 'undefined') {
+                saveCalmingPhrases();
+            }
         }
 

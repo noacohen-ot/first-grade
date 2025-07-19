@@ -14,6 +14,7 @@
     <script src="assets/js/executive.js"></script>
     <script src="assets/js/social.js"></script>
     <script src="assets/js/navigation.js"></script>
+    <script src="assets/js/storage.js"></script>
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
@@ -234,11 +235,11 @@
                             <h5>בחרו את סוג הנשימה:</h5>
                             <div style="display: flex; gap: 15px; justify-content: center; margin-top: 10px;">
                                 <label class="breathing-option" style="cursor: pointer; padding: 10px 20px; border-radius: 10px; background: white; border: 2px solid #667eea; transition: all 0.3s;">
-                                    <input type="radio" name="breathingType" value="balloon" checked onchange="updateBreathingInstructions()" style="margin-left: 5px;">
+                                    <input type="radio" name="breathingType" value="balloon" checked onchange="updateBreathingInstructions(); saveBreathingType();" style="margin-left: 5px;">
                                     🎈 נשימת בלון
                                 </label>
                                 <label class="breathing-option" style="cursor: pointer; padding: 10px 20px; border-radius: 10px; background: white; border: 2px solid #667eea; transition: all 0.3s;">
-                                    <input type="radio" name="breathingType" value="flower" onchange="updateBreathingInstructions()" style="margin-left: 5px;">
+                                    <input type="radio" name="breathingType" value="flower" onchange="updateBreathingInstructions(); saveBreathingType();" style="margin-left: 5px;">
                                     🌸 נשימת פרח ונר
                                 </label>
                             </div>
@@ -1165,11 +1166,5 @@
             </div>
         </div>
     </div>
-
-    <!-- <script>
-        //let selectedMemoryCard = null;
-        //let memoryGameStarted = false;
-        //let selectedSequence = [];
-    </script> -->
 </body>
 </html>
